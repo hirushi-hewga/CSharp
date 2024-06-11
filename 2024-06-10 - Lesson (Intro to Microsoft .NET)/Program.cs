@@ -36,8 +36,8 @@
             Console.WriteLine($"You entered {number + 100} !!!!!");
 
 
-            int d = 0;
-            int? r = null;
+            //int d = 0;
+            //int? r = null;
             // int* ptr = nullptr;
             // int* ptr = new int(5)
         }
