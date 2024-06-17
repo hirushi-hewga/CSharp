@@ -11,17 +11,7 @@ namespace _2024_06_10___HW__Intro_to_Microsoft_.NET_
             //Console.WriteLine("Bjarne Stroustrup");
 
 
-            Console.Write("Enter number : ");
-            Console.ReadLine();
-            int a;
-            int min;
-            int max;
-            int sum = 0;
-            int dobutok = 1;
-            for (int i = 0; i < 4; i++)
-            {
-                
-            }
+            int a = Console.ReadLine();
         }
     }
 }
