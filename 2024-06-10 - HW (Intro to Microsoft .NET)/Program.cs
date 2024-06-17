@@ -11,7 +11,11 @@ namespace _2024_06_10___HW__Intro_to_Microsoft_.NET_
             //Console.WriteLine("Bjarne Stroustrup");
 
 
-            int a = Console.ReadLine();
+            int a;
+            for (int i = 0;i < args.Length; i++)
+            {
+                a = int.Parse(Console.ReadLine());
+            }
         }
     }
 }
