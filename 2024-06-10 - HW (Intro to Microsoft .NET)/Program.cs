@@ -38,7 +38,7 @@ namespace _2024_06_10___HW__Intro_to_Microsoft_.NET_
 
 
             /*
-            Console.Write("Enter number : ");
+            Console.Write("Enter six-digit number : ");
             int number = int.Parse(Console.ReadLine());
             Console.WriteLine("Number : " + number % 10 + number % 100 / 10 + number % 1000 / 100 + number % 10000 / 1000 + number % 100000 / 10000 + number % 1000000 / 100000);
             */
@@ -64,6 +64,43 @@ namespace _2024_06_10___HW__Intro_to_Microsoft_.NET_
                 num_2 += num_1;
                 num_1 = num_2 - num_1;
             }
+            */
+
+
+            /*
+            int A = 2;
+            int B = 8;
+            for (; A <= B; A++)
+            {
+                for (int i = 0; i < A; i++)
+                {
+                    Console.Write($"{A} ");
+                }
+                Console.WriteLine();
+            }
+            */
+
+
+            /*
+            Console.Write("Enter symbol : ");
+            ConsoleKeyInfo key = Console.ReadKey();
+            char symbol = key.KeyChar;
+            Console.Write("\nEnter length : ");
+            int length = int.Parse(Console.ReadLine());
+            Console.WriteLine("\n--- select a direction ---");
+            Console.WriteLine("\n1 - horizontalno");
+            Console.WriteLine("\n2 - vertikalno");
+            Console.Write("\nEnter your choice : ");
+            int choice = int.Parse(Console.ReadLine());
+            if (choice == 1 || choice == 2)
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    Console.Write(symbol);
+                    if (choice == 2) Console.WriteLine();
+                }
+            }
+            else Console.WriteLine("\nError choice");
             */
         }
     }
