@@ -35,6 +35,36 @@ namespace _2024_06_10___HW__Intro_to_Microsoft_.NET_
             Console.WriteLine($"Min : {min}");
             Console.WriteLine($"Max : {max}");
             */
+
+
+            /*
+            Console.Write("Enter number : ");
+            int number = int.Parse(Console.ReadLine());
+            Console.WriteLine("Number : " + number % 10 + number % 100 / 10 + number % 1000 / 100 + number % 10000 / 1000 + number % 100000 / 10000 + number % 1000000 / 100000);
+            */
+
+
+            /*
+            Console.WriteLine("--- Enter diapazon ---");
+            Console.Write("Enter first number : ");
+            int first = int.Parse(Console.ReadLine());
+            Console.Write("Enter second number : ");
+            int second = int.Parse(Console.ReadLine());
+            if (first > second)
+            {
+                int temp = first;
+                first = second;
+                second = temp;
+            }
+            int num_1 = 0;
+            int num_2 = 1;
+            while (num_1 < second)
+            {
+                if (num_1 >= first) Console.WriteLine(num_1);
+                num_2 += num_1;
+                num_1 = num_2 - num_1;
+            }
+            */
         }
     }
 }
