@@ -96,15 +96,46 @@ namespace _2024_06_12___HW__Array_
                     B[i, j] = Math.Round(random.Next(90) + 10 + random.NextDouble(), 2);
                 }
             }
-            Console.Write("\n\nB : \n|");
+            Console.WriteLine("\n\nB :");
             for (int i = 0; i <= B.GetUpperBound(0); i++)
             {
                 for (int j = 0; j <= B.GetUpperBound(1); j++)
                 {
-                    Console.Write($" {B[i, j]} |");
+                    Console.Write($"{B[i, j]} ");
                 }
-                if (i < B.GetUpperBound(0)) Console.Write("\n---------------------------------\n|");
+                Console.WriteLine();
             }
+            double total_max_elem = A[0];
+            double total_min_elem = A[0];
+            double total_suma = 0;
+            double total_dobutok = 1;
+            int suma_even_elem_A = 0;
+            double suma_odd_cols_B = 0;
+            for (int i = 0; i <= A.GetUpperBound(0); i++)
+            {
+                if (A[i] > total_max_elem) total_max_elem = A[i];
+                if (A[i] < total_min_elem) total_min_elem = A[i];
+                total_suma += A[i];
+                total_dobutok *= A[i];
+                if (A[i] % 2 == 0) suma_even_elem_A += A[i];
+            }
+            for (int i = 0; i <= B.GetUpperBound(0); i++)
+            {
+                for (int j = 0; j <= B.GetUpperBound(1); j++)
+                {
+                    if (B[i, j] > total_max_elem) total_max_elem = B[i, j];
+                    if (B[i, j] < total_min_elem) total_min_elem = B[i, j];
+                    total_suma += B[i, j];
+                    total_dobutok *= B[i, j];
+                    if (j % 2 != 0) suma_odd_cols_B += B[i, j];
+                }
+            }
+            Console.WriteLine($"\nTotal max element : {total_max_elem}");
+            Console.WriteLine($"\nTotal min element : {total_min_elem}");
+            Console.WriteLine($"\nTotal suma : {total_suma}");
+            Console.WriteLine($"\nTotal dobutok : {total_dobutok}");
+            Console.WriteLine($"\nTotal suma the even elements of array A : {suma_even_elem_A}");
+            Console.WriteLine($"\nTotal suma the odd elements of array B : {suma_odd_cols_B}");
 
             #endregion
         }
