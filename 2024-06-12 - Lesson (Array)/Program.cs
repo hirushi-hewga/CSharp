@@ -436,6 +436,8 @@
 
             #endregion
         }
+        #region functions
+
         static int[] ModifyArray(int[] array, int modifier)
         {
             for (int i = 0; i < array.Length; i++)
@@ -467,5 +469,7 @@
             }
             Console.WriteLine();
         }
+
+        #endregion
     }
 }
