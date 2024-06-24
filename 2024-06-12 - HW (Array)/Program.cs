@@ -76,6 +76,7 @@ namespace _2024_06_12___HW__Array_
 
             #region 3
 
+            /*
             int[] A = new int[5];
             double[,] B = new double[3, 4];
             for (int i = 0; i < A.Length; i++)
@@ -132,10 +133,58 @@ namespace _2024_06_12___HW__Array_
             }
             Console.WriteLine($"\nTotal max element : {total_max_elem}");
             Console.WriteLine($"\nTotal min element : {total_min_elem}");
-            Console.WriteLine($"\nTotal suma : {total_suma}");
+            Console.WriteLine($"\nTotal suma : {Math.Round(total_suma, 2)}");
             Console.WriteLine($"\nTotal dobutok : {total_dobutok}");
             Console.WriteLine($"\nTotal suma the even elements of array A : {suma_even_elem_A}");
             Console.WriteLine($"\nTotal suma the odd elements of array B : {suma_odd_cols_B}");
+            */
+
+            #endregion
+
+            #region 4
+
+            int[,] arr = new int[5, 5];
+            Random random = new Random();
+            int min_i = 0, min_j = 0, max_i = 0, max_j = 0;
+            for (int i = 0; i <= arr.GetUpperBound(0); i++)
+            {
+                for (int j = 0; j <= arr.GetUpperBound(1); j++)
+                {
+                    arr[i, j] = random.Next(201) - 100;
+                    Console.Write($" {arr[i, j]}  ");
+                    if (arr[min_i, min_j] > arr[i, j]) 
+                    {
+                        min_i = i;
+                        min_j = j;
+                    }
+                    if (arr[max_i, max_j] < arr[i, j])
+                    {
+                        max_i = i;
+                        max_j = j;
+                    }
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine($"\n Min element : {arr[min_i, min_j]}");
+            Console.WriteLine($" Max element : {arr[max_i, max_j]}");
+            int suma = 0;
+            for (int i = 0; i <= arr.GetUpperBound(0); i++)
+            {
+                for (int j = 0; j <= arr.GetUpperBound(1); j++)
+                {
+                    if ((min_i < max_i) || (min_i == max_i && min_j < max_j))
+                    {
+                        if ((i >= min_i && i <= max_i) && ((i == min_i && j > min_j) || (i == max_i && j < max_j) || (i != min_i && i != max_i)))
+                            suma += arr[i, j];
+                    }
+                    else
+                    {
+                        if ((i >= max_i && i <= min_i) && ((i == max_i && j > max_j) || (i == min_i && j < min_j) || (i != max_i && i != min_i)))
+                            suma += arr[i, j];
+                    }
+                }
+            }
+            Console.WriteLine($" Suma : {suma}");
 
             #endregion
         }
