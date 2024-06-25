@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-12 - Lesson (Array)
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-12 - HW (Array)", "2024-06-12 - HW (Array)\2024-06-12 - HW (Array).csproj", "{7ED8F653-3DA5-464B-A5A1-EC3CE1B17030}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-06-14 - Lesson (Enum)", "2024-06-14 - Lesson (Enum)\2024-06-14 - Lesson (Enum).csproj", "{BA6B3D17-AB17-4F4A-96AD-06002E5BBD02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-14 - Lesson (Enum)", "2024-06-14 - Lesson (Enum)\2024-06-14 - Lesson (Enum).csproj", "{BA6B3D17-AB17-4F4A-96AD-06002E5BBD02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-06-14 - HW (Enum)", "2024-06-14 - HW (Enum)\2024-06-14 - HW (Enum).csproj", "{2641FBB7-0227-4149-A9D2-5796350A5F5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-14 - HW (Enum)", "2024-06-14 - HW (Enum)\2024-06-14 - HW (Enum).csproj", "{2641FBB7-0227-4149-A9D2-5796350A5F5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-06-14 - Lesson (String)", "2024-06-14 - Lesson (String)\2024-06-14 - Lesson (String).csproj", "{C334E5BE-599F-416C-9655-1E7AF1F95694}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{2641FBB7-0227-4149-A9D2-5796350A5F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2641FBB7-0227-4149-A9D2-5796350A5F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2641FBB7-0227-4149-A9D2-5796350A5F5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C334E5BE-599F-416C-9655-1E7AF1F95694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C334E5BE-599F-416C-9655-1E7AF1F95694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C334E5BE-599F-416C-9655-1E7AF1F95694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C334E5BE-599F-416C-9655-1E7AF1F95694}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

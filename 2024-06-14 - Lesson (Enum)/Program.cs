@@ -42,7 +42,7 @@
 
             foreach (DISCOUNT item in values)
             {
-                Console.WriteLine($"{item} - {(int)item}")
+                Console.WriteLine($"{item} - {(int)item}");
             }
         }
     }
