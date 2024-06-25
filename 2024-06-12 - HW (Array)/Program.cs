@@ -143,6 +143,7 @@ namespace _2024_06_12___HW__Array_
 
             #region 4
 
+            /*
             int[,] arr = new int[5, 5];
             Random random = new Random();
             int min_i = 0, min_j = 0, max_i = 0, max_j = 0;
@@ -174,17 +175,41 @@ namespace _2024_06_12___HW__Array_
                 {
                     if ((min_i < max_i) || (min_i == max_i && min_j < max_j))
                     {
-                        if ((i >= min_i && i <= max_i) && ((i == min_i && j > min_j) || (i == max_i && j < max_j) || (i != min_i && i != max_i)))
+                        if ((i == min_i && j > min_j) || (i == max_i && j < max_j) || (i > min_i && i < max_i))
                             suma += arr[i, j];
                     }
                     else
                     {
-                        if ((i >= max_i && i <= min_i) && ((i == max_i && j > max_j) || (i == min_i && j < min_j) || (i != max_i && i != min_i)))
+                        if ((i == max_i && j > max_j) || (i == min_i && j < min_j) || (i > max_i && i < min_i))
                             suma += arr[i, j];
                     }
                 }
             }
             Console.WriteLine($" Suma : {suma}");
+            */
+
+            #endregion
+
+            #region 5
+
+            /*
+            int[] arr = new int[30];
+            Random random = new Random();
+            int min = 200;
+            for (int i = 0; i <= arr.GetUpperBound(0); i++)
+            {
+                arr[i] = random.Next(101);
+                Console.Write($"{arr[i]} ");
+                if (arr[i] < min) min = arr[i];
+            }
+            Console.WriteLine($"\nmin = {min}");
+            int res = 0;
+            for (int i = 0; i <= arr.GetUpperBound(0); i++)
+            {
+                if (arr[i] + 5 == min || arr[i] - 5 == min) res++;
+            }
+            Console.WriteLine($"res : {res}");
+            */
 
             #endregion
         }
