@@ -8,6 +8,7 @@ namespace _2024_06_14___HW__Enum_
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
             #region 1
 
             /*
@@ -43,6 +44,13 @@ namespace _2024_06_14___HW__Enum_
             #endregion
 
             #region 3
+
+            string line = "Дано текст. Визначте відсоткове відношення" +
+                " малих і великих літер до загальної кількості символів в ньому";
+            foreach (char item in line)
+            {
+                Console.Write(item);
+            }
 
             #endregion
 
