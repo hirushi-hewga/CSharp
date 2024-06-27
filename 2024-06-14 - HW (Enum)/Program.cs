@@ -41,6 +41,26 @@ namespace _2024_06_14___HW__Enum_
             */
 
             #endregion
+
+            #region 3
+
+            #endregion
+
+            #region 4
+
+            #endregion
+
+            #region 5
+
+            #endregion
+
+            #region 6
+
+            #endregion
+
+            #region 7
+
+            #endregion
         }
     }
 }
