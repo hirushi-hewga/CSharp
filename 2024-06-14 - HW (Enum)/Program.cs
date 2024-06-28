@@ -114,6 +114,7 @@ namespace _2024_06_14___HW__Enum_
             {
                 Console.Write("\nEnter word : ");
                 word = Console.ReadLine();
+                words[words.Length - 1] = word;
                 if (word[word.Length - 1] != '.')
                     Array.Resize(ref words, words.Length + 1);
                 else break;
@@ -125,6 +126,7 @@ namespace _2024_06_14___HW__Enum_
                 if (item != null && item[item.Length - 1] != '.')
                     str.Append(", ");
             }
+            Console.WriteLine($"\n{str}");
 
             #endregion
         }
