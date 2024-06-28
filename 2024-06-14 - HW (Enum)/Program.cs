@@ -45,27 +45,86 @@ namespace _2024_06_14___HW__Enum_
 
             #region 3
 
+            /*
             string line = "Дано текст. Визначте відсоткове відношення" +
                 " малих і великих літер до загальної кількості символів в ньому";
             string line_2 = line.Replace(" ", "").Replace(".", "");
             Console.WriteLine(line);
             Console.WriteLine($"\nЛітери становлять {Math.Round(((float)line_2.Length / line.Length) * 100, 1)}% від загальної кількості символів");
+            */
 
             #endregion
 
             #region 4
 
+            /*
+            string[] words = { "Book", "Summer", "Sun", "Music", "Friendship", "Travel", "Happiness", "Love", "Freedom", "Health" };
+            foreach (string word in words) { Console.Write("{0} ", word); }
+            Console.WriteLine();
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (words[i].Length > 5)
+                {
+                    words[i] = words[i].Substring(0, words[i].Length - 3) + "$$$";
+                }
+            }
+            foreach (string word in words) { Console.Write("{0} ", word); }
+            Console.WriteLine();
+            */
+
             #endregion
 
             #region 5
+
+            /*
+            string line = "Знайти слово, що стоїть в тексті" +
+                " під певним номером, і вивести його першу букву.";
+            string[] words = line.Split(new char[] { ',', ' ', '.' }, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < words.Length; i++)
+            {
+                Console.WriteLine("{0}. {1}", i + 1, words[i]);
+            }
+            Console.Write("\nChoice word : ");
+            int number = int.Parse(Console.ReadLine());
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (number - 1 == i)
+                    Console.WriteLine("\nПерша буква - {0}", words[i][0]);
+            }
+            */
 
             #endregion
 
             #region 6
 
+            /*
+            string line = "кожен день ми можемо вчитися чомусь новому";
+            Console.WriteLine(line);
+            line = line.Replace(' ', '*');
+            Console.WriteLine(line);
+            */
+
             #endregion
 
             #region 7
+
+            string[] words = new string[1];
+            string word = "123";
+            while (true)
+            {
+                Console.Write("\nEnter word : ");
+                word = Console.ReadLine();
+                if (word[word.Length - 1] != '.')
+                    Array.Resize(ref words, words.Length + 1);
+                else break;
+            }
+            StringBuilder str = new StringBuilder();
+            foreach (string item in words)
+            {
+                if (item != null) str.Append(item);
+                if (item != null && item[item.Length - 1] != '.')
+                    str.Append(", ");
+            }
 
             #endregion
         }
