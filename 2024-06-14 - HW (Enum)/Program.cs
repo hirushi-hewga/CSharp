@@ -47,10 +47,9 @@ namespace _2024_06_14___HW__Enum_
 
             string line = "Дано текст. Визначте відсоткове відношення" +
                 " малих і великих літер до загальної кількості символів в ньому";
-            foreach (char item in line)
-            {
-                Console.Write(item);
-            }
+            string line_2 = line.Replace(" ", "").Replace(".", "");
+            Console.WriteLine(line);
+            Console.WriteLine($"\nЛітери становлять {Math.Round(((float)line_2.Length / line.Length) * 100, 1)}% від загальної кількості символів");
 
             #endregion
 
