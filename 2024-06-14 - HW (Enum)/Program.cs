@@ -108,6 +108,7 @@ namespace _2024_06_14___HW__Enum_
 
             #region 7
 
+            /*
             string[] words = new string[1];
             string word = "123";
             while (true)
@@ -127,6 +128,7 @@ namespace _2024_06_14___HW__Enum_
                     str.Append(", ");
             }
             Console.WriteLine($"\n{str}");
+            */
 
             #endregion
         }
