@@ -7,6 +7,23 @@
         private float volume;
         private int min_t;
         private int max_t;
+        public Freezer()
+        {
+            model = "no model";
+            color = "no color";
+            volume = 10;
+            min_t = -30;
+            max_t = -8;
+        }
+        public Freezer(string model) : base()
+        {
+            Model = model;
+        }
+        public Freezer(string model, string color) : base()
+        {
+            Model = model;
+            Color = color;
+        }
     }
     class Program
     {
