@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-14 - Lesson (String
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-14 - Lesson (StringBuilder)", "2024-06-14 - Lesson (StringBuilder)\2024-06-14 - Lesson (StringBuilder).csproj", "{D8EAE4CF-AD88-4095-AB71-6AD7FA26F682}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-06-17 - Lesson (Intro to OOP)", "2024-06-17 - Lesson (Intro to OOP)\2024-06-17 - Lesson (Intro to OOP).csproj", "{2EB52ACF-6E89-41F8-9F14-6F0A1398C9A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-17 - Lesson (Intro to OOP)", "2024-06-17 - Lesson (Intro to OOP)\2024-06-17 - Lesson (Intro to OOP).csproj", "{2EB52ACF-6E89-41F8-9F14-6F0A1398C9A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-06-17 - HW (Intro to OOP)", "2024-06-17 - HW (Intro to OOP)\2024-06-17 - HW (Intro to OOP).csproj", "{32DBA507-8CD2-4153-AA25-A0AEA9819A74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{2EB52ACF-6E89-41F8-9F14-6F0A1398C9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EB52ACF-6E89-41F8-9F14-6F0A1398C9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EB52ACF-6E89-41F8-9F14-6F0A1398C9A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32DBA507-8CD2-4153-AA25-A0AEA9819A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32DBA507-8CD2-4153-AA25-A0AEA9819A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32DBA507-8CD2-4153-AA25-A0AEA9819A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32DBA507-8CD2-4153-AA25-A0AEA9819A74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
