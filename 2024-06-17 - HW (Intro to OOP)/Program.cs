@@ -11,17 +11,16 @@
         {
             model = "no model";
             color = "no color";
-            volume = 10;
-            min_t = -30;
-            max_t = -8;
+            volume = 20;
+            min_t = 0;
+            max_t = 0;
         }
         public Freezer(string model) : base()
         {
             Model = model;
         }
-        public Freezer(string model, string color) : base()
+        public Freezer(string model, string color) : this(model)
         {
-            Model = model;
             Color = color;
         }
     }
