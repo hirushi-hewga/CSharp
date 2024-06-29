@@ -8,7 +8,7 @@
         private int min_t;
         private int max_t;
     }
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
