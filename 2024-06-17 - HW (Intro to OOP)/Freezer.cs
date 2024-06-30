@@ -8,6 +8,11 @@ namespace _2024_06_17___HW__Intro_to_OOP_
 {
     partial class Freezer
     {
+        static Freezer()
+        {
+            min_t = 0;
+            max_t = 0;
+        }
         public Freezer()
         {
             model = null;
@@ -55,22 +60,26 @@ namespace _2024_06_17___HW__Intro_to_OOP_
                     volume = Math.Abs(value);
             }
         }
-        public int Min_t
+        public static int Min_t
         {
             get { return min_t; }
             set
             {
                 if (value <= 0)
                     min_t = value;
+                else
+                    min_t = value * -1;
             }
         }
-        public int Max_t
+        public static int Max_t
         {
             get { return max_t; }
             set
             {
                 if (value <= 0)
                     max_t = value;
+                else
+                    max_t = value * -1;
             }
         }
     }
