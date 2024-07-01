@@ -12,29 +12,44 @@ namespace _2024_06_17___HW__Intro_to_OOP_
         private int volume;
         private static int min_t;
         private static int max_t;
-        public override string ToString()
-        {
-            return $"Model : {Model} ,  Color : {Color} ,  Volume : {Volume} ,  Min temperature : {Min_t} ,  Max temperature : {Max_t}";
-        }
-        public void SetMinTemperature(int value) { Min_t = value; }
-        public void GetMinTemperature(ref int var) { var = Min_t; }
-        public void SetMaxTemperature(int value) { Max_t = value; }
-        public void GetMaxTemperature(ref int var) { var = Max_t; }
     };
     class Program
     {
         static void Main(string[] args)
         {
             Freezer freezer = new Freezer("freezer", "Black");
-            
-            //string string_freezer = freezer.ToString();
-            //Console.WriteLine(string_freezer);
 
-            // Ще не доробив //
+            string string_freezer = freezer.ToString();
+            Console.WriteLine(string_freezer);
+
+            freezer.SetMinTemperature(-30);
+            freezer.SetMaxTemperature(-10);
+            freezer.Volume = 27;
+
+            string_freezer = freezer.ToString();
+            Console.WriteLine(string_freezer);
 
 
 
+            int min_t = 0, max_t = 0;
+            freezer.GetMinTemperature(ref min_t);
+            freezer.GetMaxTemperature(ref max_t);
+            Console.WriteLine("Min : {0} ,  Max : {1}", min_t, max_t);
+            freezer.SetMinTemperature(-35);
+            freezer.SetMaxTemperature(-15);
+            min_t = freezer.GetMinTemperature();
+            max_t = freezer.GetMaxTemperature();
+            Console.WriteLine("Min : {0} ,  Max : {1}", min_t, max_t);
 
+
+
+            string[] arr = freezer.ToArray();
+
+            Console.WriteLine();
+            foreach (var item in arr)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

@@ -83,4 +83,21 @@ namespace _2024_06_17___HW__Intro_to_OOP_
             }
         }
     }
+    partial class Freezer
+    {
+        public override string ToString()
+        {
+            return $"Model : {Model} ,  Color : {Color} ,  Volume : {Volume} ,  Min temperature : {Min_t} ,  Max temperature : {Max_t}";
+        }
+        public string[] ToArray()
+        {
+            return new string[] { $"Model : {Model}", $"Color : {Color}", $"Volume : {Volume}", $"Min temperature : {Min_t}", $"Max temperature : {Max_t}" };
+        }
+        public void SetMinTemperature(int value) { Min_t = value; }
+        public void GetMinTemperature(ref int var) { var = Min_t; }
+        public int GetMinTemperature() { return min_t; }
+        public void SetMaxTemperature(int value) { Max_t = value; }
+        public void GetMaxTemperature(ref int var) { var = Max_t; }
+        public int GetMaxTemperature() { return max_t; }
+    }
 }
