@@ -16,43 +16,12 @@ namespace _2024_06_19___HW__StructRefOut_
                 $"  |  Age : {Age}  |  Salary : {Salary}  |  " +
                 $"Date of employment : {Date_of_employment[0]}:{Date_of_employment[1]}:{Date_of_employment[2]}";
         }
-        public void InitializeData()
-        {
-            string[] fullname = new string[3];
-            Console.WriteLine();
-            Console.Write("Enter worker name : ");
-            fullname[0] = Console.ReadLine();
-            Console.Write("Enter worker surname : ");
-            fullname[1] = Console.ReadLine();
-            Console.Write("Enter worker lastname : ");
-            fullname[2] = Console.ReadLine();
-            int age, salary;
-            Console.Write("Enter worker age : ");
-            age = int.Parse(Console.ReadLine());
-            Console.Write("Enter worker salary : ");
-            salary = int.Parse(Console.ReadLine());
-            int[] date = new int[3];
-            Console.Write("Enter worker year of employment : ");
-            date[0] = int.Parse(Console.ReadLine());
-            Console.Write("Enter worker month of employment : ");
-            date[1] = int.Parse(Console.ReadLine());
-            Console.Write("Enter worker day of employment : ");
-            date[2] = int.Parse(Console.ReadLine());
-            Full_name = fullname;
-            Age = age;
-            Salary = salary;
-            Date_of_employment = date;
-        }
     }
     internal class Program
     {
         static void Main(string[] args)
         {
             Worker[] workers = new Worker[5];
-            foreach (Worker worker in workers)
-            {
-                worker.InitializeData();
-            }
             foreach (Worker worker in workers)
             {
                 Console.WriteLine(worker.ToString());
