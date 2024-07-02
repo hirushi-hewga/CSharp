@@ -1,4 +1,6 @@
-﻿namespace _2024_06_19___HW__StructRefOut_
+﻿using System.Transactions;
+
+namespace _2024_06_19___HW__StructRefOut_
 {
     struct Fullname
     {
@@ -6,67 +8,70 @@
         public string surname;
         public string lastname;
     }
-    class Worker
+    partial class Worker
     {
-        Fullname full_name;
-        int age;
-        int salary;
-        DateTime date_of_employment;
-        public string[] Full_name
-        {
-            private get { return new string[] { full_name.surname, full_name.name, full_name.lastname }; }
-            set {
-                full_name.name = value[0];
-                full_name.surname = value[1];
-                full_name.lastname = value[2];
-            }
-        }
-        public int Age
-        {
-            get { return age; }
-            set {
-                if (value >= 0)
-                    age = value;
-                else
-                    age = Math.Abs(value);
-            }
-        }
-        public int Salary
-        {
-            get { return salary; }
-            set {
-                if (value >= 0)
-                    salary = value;
-                else
-                    salary = Math.Abs(value);
-            }
-        }
-        public int[] Date_of_employment
-        {
-            get { return new int[] { date_of_employment.Year, date_of_employment.Month, date_of_employment.Day }; }
-            set {
-                date_of_employment = new DateTime(value[0], value[1], value[2]);
-            }
-        }
-        public Worker(string[] fullname, int age, int salary, int[] date_of_employment)
-        {
-            Full_name = fullname;
-            Age = age;
-            Salary = salary;
-            Date_of_employment = date_of_employment;
-        }
         public override string ToString()
         {
             return $"Fullname : {Full_name[0]}.{Full_name[1][0]}.{Full_name[2][0]}" +
                 $"  |  Age : {Age}  |  Salary : {Salary}  |  " +
                 $"Date of employment : {Date_of_employment[0]}:{Date_of_employment[1]}:{Date_of_employment[2]}";
         }
+        public void InitializeData()
+        {
+            string[] fullname = new string[3];
+            Console.WriteLine();
+            Console.Write("Enter worker name : ");
+            fullname[0] = Console.ReadLine();
+            Console.Write("Enter worker surname : ");
+            fullname[1] = Console.ReadLine();
+            Console.Write("Enter worker lastname : ");
+            fullname[2] = Console.ReadLine();
+            int age, salary;
+            Console.Write("Enter worker age : ");
+            age = int.Parse(Console.ReadLine());
+            Console.Write("Enter worker salary : ");
+            salary = int.Parse(Console.ReadLine());
+            int[] date = new int[3];
+            Console.Write("Enter worker year of employment : ");
+            date[0] = int.Parse(Console.ReadLine());
+            Console.Write("Enter worker month of employment : ");
+            date[1] = int.Parse(Console.ReadLine());
+            Console.Write("Enter worker day of employment : ");
+            date[2] = int.Parse(Console.ReadLine());
+            Full_name = fullname;
+            Age = age;
+            Salary = salary;
+            Date_of_employment = date;
+        }
     }
     internal class Program
     {
         static void Main(string[] args)
         {
-            
+            Worker[] workers = new Worker[5];
+            foreach (Worker worker in workers)
+            {
+                worker.InitializeData();
+            }
+            foreach (Worker worker in workers)
+            {
+                Console.WriteLine(worker.ToString());
+            }
+
+
+
+
+
+            /*
+            Worker[] workers_ =
+            {
+                new Worker(new string[] { "Vladyslav", "Yanchuk", "Maksymovych" }, 17, 1000, new int[] { 2024, 7, 2 }),
+                new Worker(new string[] { "Bogdan", "Kurylo", "Andriyavych" }, 17, 1100, new int[] { 2024, 7, 2 }),
+                new Worker(new string[] { "Vladyslav", "Dmysh", "Anatoliyovych" }, 17, 1200, new int[] { 2024, 7, 2 }),
+                new Worker(new string[] { "Nazar", "Petriuk", "Volodymyrovych" }, 17, 1300, new int[] { 2024, 7, 2 }),
+                new Worker(new string[] { "Olena", "Iliushyn", "Sergiivna" }, 17, 1400, new int[] { 2024, 7, 2 })
+            };
+            */
         }
     }
 }
