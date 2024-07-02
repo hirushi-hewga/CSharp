@@ -14,7 +14,7 @@ namespace _2024_06_19___HW__StructRefOut_
         {
             return $"Fullname : {Full_name[0]}.{Full_name[1][0]}.{Full_name[2][0]}" +
                 $"  |  Age : {Age}  |  Salary : {Salary}  |  " +
-                $"Date of employment : {Date_of_employment[0]}:{Date_of_employment[1]}:{Date_of_employment[2]}";
+                $"Date of employment : {Date_of_employment}";
         }
     }
     internal class Program
@@ -22,6 +22,11 @@ namespace _2024_06_19___HW__StructRefOut_
         static void Main(string[] args)
         {
             Worker[] workers = new Worker[5];
+            for (int i = 0; i < workers.Length; i++)
+            {
+                workers[i] = new Worker();
+                workers[i].Salary = int.Parse(Console.ReadLine());
+            }
             foreach (Worker worker in workers)
             {
                 Console.WriteLine(worker.ToString());

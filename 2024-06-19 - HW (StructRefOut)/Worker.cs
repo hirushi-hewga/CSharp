@@ -44,12 +44,15 @@ namespace _2024_06_19___HW__StructRefOut_
                     salary = Math.Abs(value);
             }
         }
-        public int[] Date_of_employment
+        public DateTime Date_of_employment
         {
-            private get { return new int[] { date_of_employment.Year, date_of_employment.Month, date_of_employment.Day }; }
+            private get { return date_of_employment; }
             set
             {
-                date_of_employment = new DateTime(value[0], value[1], value[2]);
+                if (value < DateTime.Now)
+                    date_of_employment = value;
+                else
+                    throw new Exception("Incorrect date");
             }
         }
         public Worker()
@@ -57,9 +60,9 @@ namespace _2024_06_19___HW__StructRefOut_
             Full_name = new string[] { "no name", "no surname", "no lastname" };
             Age = 0;
             Salary = 0;
-            Date_of_employment = new int[] { 0, 0, 0 };
+            Date_of_employment = new DateTime();
         }
-        public Worker(string[] fullname, int age, int salary, int[] date_of_employment)
+        public Worker(string[] fullname, int age, int salary, DateTime date_of_employment)
         {
             Full_name = fullname;
             Age = age;
