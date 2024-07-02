@@ -12,14 +12,32 @@ namespace _2024_06_19___HW__StructRefOut_
         private int age;
         private int salary;
         private DateTime date_of_employment;
-        public string[] Full_name
+        
+        public Worker()
         {
-            private get { return new string[] { full_name.surname, full_name.name, full_name.lastname }; }
+            Full_name = new Fullname();
+            Age = 0;
+            Salary = 0;
+            Date_of_employment = new DateTime();
+        }
+        public Worker(Fullname fullname, int age, int salary, DateTime date_of_employment)
+        {
+            Full_name = fullname;
+            Age = age;
+            Salary = salary;
+            Date_of_employment = date_of_employment;
+        }
+    }
+    partial class Worker
+    {
+        public Fullname Full_name
+        {
+            private get { return full_name; }
             set
             {
-                full_name.name = value[0];
-                full_name.surname = value[1];
-                full_name.lastname = value[2];
+                full_name.name = value.name;
+                full_name.surname = value.surname;
+                full_name.lastname = value.lastname;
             }
         }
         public int Age
@@ -30,7 +48,7 @@ namespace _2024_06_19___HW__StructRefOut_
                 if (value >= 0)
                     age = value;
                 else
-                    age = Math.Abs(value);
+                    throw new Exception("Incorrect age");
             }
         }
         public int Salary
@@ -41,7 +59,7 @@ namespace _2024_06_19___HW__StructRefOut_
                 if (value >= 0)
                     salary = value;
                 else
-                    salary = Math.Abs(value);
+                    throw new Exception("Incorrect salary");
             }
         }
         public DateTime Date_of_employment
@@ -54,20 +72,6 @@ namespace _2024_06_19___HW__StructRefOut_
                 else
                     throw new Exception("Incorrect date");
             }
-        }
-        public Worker()
-        {
-            Full_name = new string[] { "no name", "no surname", "no lastname" };
-            Age = 0;
-            Salary = 0;
-            Date_of_employment = new DateTime();
-        }
-        public Worker(string[] fullname, int age, int salary, DateTime date_of_employment)
-        {
-            Full_name = fullname;
-            Age = age;
-            Salary = salary;
-            Date_of_employment = date_of_employment;
         }
     }
 }
