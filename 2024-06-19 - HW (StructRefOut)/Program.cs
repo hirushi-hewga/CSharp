@@ -109,8 +109,8 @@ namespace _2024_06_19___HW__StructRefOut_
                     case (int)Actions.DIV: Console.WriteLine(calc.Div()); break;
                 }
                 Console.ReadLine();
-                */
             }
+            */
         }
     }
 }
