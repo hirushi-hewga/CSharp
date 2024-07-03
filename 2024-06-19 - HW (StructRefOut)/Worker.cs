@@ -35,9 +35,7 @@ namespace _2024_06_19___HW__StructRefOut_
             private get { return full_name; }
             set
             {
-                full_name.name = value.name;
-                full_name.surname = value.surname;
-                full_name.lastname = value.lastname;
+                full_name = value;
             }
         }
         public int Age
