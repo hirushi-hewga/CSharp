@@ -62,7 +62,29 @@ namespace _2024_06_21___HW__Exceptions__Namespaces_
 
             #region 3
 
-
+            /*
+            try
+            {
+                Write("Enter example : ");
+                string example = ReadLine();
+                string[] split_example = example.Split('*', StringSplitOptions.RemoveEmptyEntries);
+                int res = 1;
+                foreach (string value in split_example)
+                {
+                    res *= int.Parse(value);
+                }
+                WriteLine();
+                WriteLine("Res = {0}", res);
+            }
+            catch (FormatException ex)
+            {
+                WriteLine("Format exception. Example must consist of numbers");
+            }
+            catch (Exception ex)
+            {
+                WriteLine("Unknown exception");
+            }
+            */
 
             #endregion
         }
