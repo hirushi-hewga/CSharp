@@ -20,7 +20,9 @@ namespace _2024_06_21___HW__Exceptions__Namespaces_
     {
         static void Main(string[] args)
         {
-            /* 1
+            #region 1
+
+            /*
 			try
 			{
                 Write("Enter number : ");
@@ -42,9 +44,11 @@ namespace _2024_06_21___HW__Exceptions__Namespaces_
             }
             */
 
+            #endregion
 
+            #region 2
 
-            /* 2*/
+            /*
             CreditCard[] cards = new CreditCard[2];
             cards[0] = new CreditCard("1111222233334444", new Fullname( "Andriy", "Ivanchuk", "Volodymyrovych" ), "123", new DateTime(2027, 11, 24));
             cards[1] = new CreditCard("5555666677778888", new Fullname( "Oksana", "Drobot", "Yuriivna" ), "456", new DateTime(2028, 12, 23));
@@ -52,6 +56,15 @@ namespace _2024_06_21___HW__Exceptions__Namespaces_
             {
                 WriteLine(card.ToString());
             }
+            */
+
+            #endregion
+
+            #region 3
+
+
+
+            #endregion
         }
     }
 }
