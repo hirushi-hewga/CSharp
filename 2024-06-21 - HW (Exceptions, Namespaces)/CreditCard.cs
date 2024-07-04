@@ -39,7 +39,7 @@ namespace _2024_06_21___HW__Exceptions__Namespaces_
             get { return card_number; }
             set
             {
-                if (card_number.Length != 16)
+                if (value.Length != 16)
                     throw new LengthException("Length exception. Length should be 16");
                 else if (!value.All(s => char.IsDigit(s)))
                     throw new FormatException("Data type exception. Number must consist of numbers");
@@ -60,11 +60,11 @@ namespace _2024_06_21___HW__Exceptions__Namespaces_
             get { return cvc; }
             set
             {
-                if (cvc.Length != 3)
+                if (value.Length != 3)
                     throw new LengthException("Length exception. Length should be 3");
                 else if (!value.All(s => char.IsDigit(s)))
                     throw new FormatException("Data type exception. CVC must consist of numbers");
-                else card_number = value;
+                else cvc = value;
             }
         }
         public DateTime Card_expiration_date
