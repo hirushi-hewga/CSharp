@@ -31,9 +31,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-21 - Lesson (Except
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-21 - HW (Exceptions, Namespaces)", "2024-06-21 - HW (Exceptions, Namespaces)\2024-06-21 - HW (Exceptions, Namespaces).csproj", "{42ADA3E8-A555-49FE-AFE5-B3F67A153582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-06-24 - Lesson (Overload operators)", "2024-06-24 - Lesson (Overload operators)\2024-06-24 - Lesson (Overload operators).csproj", "{AC6ECB8C-F62B-44FD-AED0-8E56BDB31F33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-24 - Lesson (Overload operators)", "2024-06-24 - Lesson (Overload operators)\2024-06-24 - Lesson (Overload operators).csproj", "{AC6ECB8C-F62B-44FD-AED0-8E56BDB31F33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-06-24 - HW (Overload operators)", "2024-06-24 - HW (Overload operators)\2024-06-24 - HW (Overload operators).csproj", "{C7F751E4-3EAB-4A1A-B63D-A471DF441F7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-24 - HW (Overload operators)", "2024-06-24 - HW (Overload operators)\2024-06-24 - HW (Overload operators).csproj", "{C7F751E4-3EAB-4A1A-B63D-A471DF441F7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-06-26 - Lesson (Indexers)", "2024-06-26 - Lesson (Indexers)\2024-06-26 - Lesson (Indexers).csproj", "{00A31EB7-4337-4B54-A904-D07A9D57545C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-06-26 - Lesson (Inheritance)", "2024-06-26 - Lesson (Inheritance)\2024-06-26 - Lesson (Inheritance).csproj", "{0C5A891C-D60E-40CB-A8AF-D57CBBE5F4D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +109,14 @@ Global
 		{C7F751E4-3EAB-4A1A-B63D-A471DF441F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7F751E4-3EAB-4A1A-B63D-A471DF441F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7F751E4-3EAB-4A1A-B63D-A471DF441F7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00A31EB7-4337-4B54-A904-D07A9D57545C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A31EB7-4337-4B54-A904-D07A9D57545C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A31EB7-4337-4B54-A904-D07A9D57545C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A31EB7-4337-4B54-A904-D07A9D57545C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C5A891C-D60E-40CB-A8AF-D57CBBE5F4D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C5A891C-D60E-40CB-A8AF-D57CBBE5F4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C5A891C-D60E-40CB-A8AF-D57CBBE5F4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C5A891C-D60E-40CB-A8AF-D57CBBE5F4D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
