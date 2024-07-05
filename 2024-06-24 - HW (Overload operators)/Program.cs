@@ -53,6 +53,8 @@ namespace _2024_06_24___HW__Overload_operators_
             {
                 WriteLine("Unknown exception");
             }
+
+
             if (s1 < s2)
                 WriteLine("s1 < s2");
             else
