@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2024_06_24___HW__Overload_operators_
 {
-    internal class Rectangle
+    partial class Rectangle
     {
     }
 }
