@@ -369,7 +369,7 @@ namespace _2024_06_26___HW__Inheritance_
             this.shapes = new Shape[shapes.Length];
             for (int i = 0; i < shapes.Length; i++)
             {
-                this.shapes[i] = new Shape(shapes[i]);
+                this.shapes[i] = new Parallelogram();
             }
         }
     }
