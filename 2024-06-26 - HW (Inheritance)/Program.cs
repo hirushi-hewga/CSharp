@@ -349,6 +349,18 @@ namespace _2024_06_26___HW__Inheritance_
             return (float)(Math.PI * (Base_axis + Additional_axis) * (1 + (3 * h) / (10 + Math.Sqrt(4 - 3 * h))));
         }
     }
+    class Composite_figure
+    {
+        private Shape[] shapes;
+        public Composite_figure()
+        {
+            shapes = null;
+        }
+        public Composite_figure(int size)
+        {
+            shapes = new Shape[size];
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
