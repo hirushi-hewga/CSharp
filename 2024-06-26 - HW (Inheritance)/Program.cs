@@ -356,9 +356,9 @@ namespace _2024_06_26___HW__Inheritance_
         {
             shapes = null;
         }
-        public Composite_figure(int size)
+        public Composite_figure(params Shape[] shapes)
         {
-            shapes = new Shape[size];
+            shapes = new Shape[shapes.Length];
         }
     }
     internal class Program
