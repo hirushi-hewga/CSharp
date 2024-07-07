@@ -50,6 +50,7 @@ namespace _2024_06_26___HW__Inheritance_
             Side_b = side_b;
             Side_c = side_c;
         }
+        public Triangle(Triangle other) : this(other.Side_a, other.Side_b, other.Side_c) { }
         public override float GetArea()
         {
             float s = (Side_a + Side_b + Side_c) / 2;
@@ -80,6 +81,7 @@ namespace _2024_06_26___HW__Inheritance_
         {
             Side = side;
         }
+        public Square(Square other) : this(other.Side) { }
         public override float GetArea()
         {
             return Side * Side;
@@ -108,6 +110,7 @@ namespace _2024_06_26___HW__Inheritance_
         {
             Side = side;
         }
+        public Diamond(Diamond other) : this(other.Side) { }
         public override float GetArea()
         {
             return (Side * Side) / 2;
@@ -149,6 +152,7 @@ namespace _2024_06_26___HW__Inheritance_
             Base_length = base_length;
             Side_length = side_length;
         }
+        public Rectangle(Rectangle other) : this(other.Base_length, other.Side_length) { }
         public override float GetArea()
         {
             return Base_length * Side_length;
@@ -203,6 +207,7 @@ namespace _2024_06_26___HW__Inheritance_
             Side_length = side_length;
             Height = height;
         }
+        public Parallelogram(Parallelogram other) : this(other.Base_length, other.Side_length, other.Height) { }
         public override float GetArea()
         {
             return Base_length * Height;
@@ -270,6 +275,7 @@ namespace _2024_06_26___HW__Inheritance_
             Side_length = side_length;
             Height = height;
         }
+        public Trapeze(Trapeze other) : this(other.Base_length_1, other.Base_length_2, other.Side_length, other.Height) { }
         public override float GetArea()
         {
             return (Base_length_1 + Base_length_2) / 2 * Height;
@@ -298,6 +304,7 @@ namespace _2024_06_26___HW__Inheritance_
         {
             Radius = radius;
         }
+        public Circle(Circle other) : this(other.Radius) { }
         public override float GetArea()
         {
             return (float)(Math.PI * Radius * Radius);
@@ -339,6 +346,7 @@ namespace _2024_06_26___HW__Inheritance_
             Base_axis = base_axis;
             Additional_axis = additional_axis;
         }
+        public Ellipse(Ellipse other) : this(other.Base_axis, other.Additional_axis) { }
         public override float GetArea()
         {
             return (float)(Math.PI * Base_axis * Additional_axis);
@@ -358,7 +366,11 @@ namespace _2024_06_26___HW__Inheritance_
         }
         public Composite_figure(params Shape[] shapes)
         {
-            shapes = new Shape[shapes.Length];
+            this.shapes = new Shape[shapes.Length];
+            for (int i = 0; i < shapes.Length; i++)
+            {
+                this.shapes[i] = new Shape(shapes[i]);
+            }
         }
     }
     internal class Program
