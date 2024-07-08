@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata;
+﻿using System.Net.Http.Headers;
+using System.Reflection.Metadata;
 using System.Security.AccessControl;
 using static System.Console;
 namespace _2024_06_26___HW__Inheritance_
@@ -16,7 +17,8 @@ namespace _2024_06_26___HW__Inheritance_
         public float Side_a
         {
             get { return side_a; }
-            private set {
+            private set
+            {
                 if (value > 0)
                     side_a = value;
                 else
@@ -26,7 +28,8 @@ namespace _2024_06_26___HW__Inheritance_
         public float Side_b
         {
             get { return side_b; }
-            private set {
+            private set
+            {
                 if (value > 0)
                     side_b = value;
                 else
@@ -36,7 +39,8 @@ namespace _2024_06_26___HW__Inheritance_
         public float Side_c
         {
             get { return side_c; }
-            private set {
+            private set
+            {
                 if (value > 0)
                     side_c = value;
                 else
@@ -50,7 +54,6 @@ namespace _2024_06_26___HW__Inheritance_
             Side_b = side_b;
             Side_c = side_c;
         }
-        public Triangle(Triangle other) : this(other.Side_a, other.Side_b, other.Side_c) { }
         public override float GetArea()
         {
             float s = (Side_a + Side_b + Side_c) / 2;
@@ -60,6 +63,10 @@ namespace _2024_06_26___HW__Inheritance_
         public override float GetPerimetr()
         {
             return Side_a + Side_b + Side_c;
+        }
+        public override string ToString()
+        {
+            return $"Triangle | First side : {Side_a}, Second side : {Side_b}, Third side : {Side_c}\nPerimetr : {GetPerimetr()}, Area : {GetArea()}\n";
         }
     }
     class Square : Shape
@@ -81,7 +88,6 @@ namespace _2024_06_26___HW__Inheritance_
         {
             Side = side;
         }
-        public Square(Square other) : this(other.Side) { }
         public override float GetArea()
         {
             return Side * Side;
@@ -89,6 +95,10 @@ namespace _2024_06_26___HW__Inheritance_
         public override float GetPerimetr()
         {
             return Side * 4;
+        }
+        public override string ToString()
+        {
+            return $"Square | Side : {Side}\nPerimetr : {GetPerimetr()}, Area : {GetArea()}\n";
         }
     }
     class Diamond : Shape
@@ -110,7 +120,6 @@ namespace _2024_06_26___HW__Inheritance_
         {
             Side = side;
         }
-        public Diamond(Diamond other) : this(other.Side) { }
         public override float GetArea()
         {
             return (Side * Side) / 2;
@@ -118,6 +127,10 @@ namespace _2024_06_26___HW__Inheritance_
         public override float GetPerimetr()
         {
             return Side * 4;
+        }
+        public override string ToString()
+        {
+            return $"Diamond | Side : {Side}\nPerimetr : {GetPerimetr()}, Area : {GetArea()}\n";
         }
     }
     class Rectangle : Shape
@@ -152,7 +165,6 @@ namespace _2024_06_26___HW__Inheritance_
             Base_length = base_length;
             Side_length = side_length;
         }
-        public Rectangle(Rectangle other) : this(other.Base_length, other.Side_length) { }
         public override float GetArea()
         {
             return Base_length * Side_length;
@@ -160,6 +172,10 @@ namespace _2024_06_26___HW__Inheritance_
         public override float GetPerimetr()
         {
             return (Base_length + Side_length) * 2;
+        }
+        public override string ToString()
+        {
+            return $"Rectangle | Base length : {Base_length}, Side length {Side_length}\nPerimetr : {GetPerimetr()}, Area : {GetArea()}\n";
         }
     }
     class Parallelogram : Shape
@@ -207,7 +223,6 @@ namespace _2024_06_26___HW__Inheritance_
             Side_length = side_length;
             Height = height;
         }
-        public Parallelogram(Parallelogram other) : this(other.Base_length, other.Side_length, other.Height) { }
         public override float GetArea()
         {
             return Base_length * Height;
@@ -215,6 +230,10 @@ namespace _2024_06_26___HW__Inheritance_
         public override float GetPerimetr()
         {
             return (Base_length + Side_length) * 2;
+        }
+        public override string ToString()
+        {
+            return $"Parallelogram | Base length : {Base_length}, Side length {Side_length}, Height : {Height}\nPerimetr : {GetPerimetr()}, Area : {GetArea()}\n";
         }
     }
     class Trapeze : Shape
@@ -275,7 +294,6 @@ namespace _2024_06_26___HW__Inheritance_
             Side_length = side_length;
             Height = height;
         }
-        public Trapeze(Trapeze other) : this(other.Base_length_1, other.Base_length_2, other.Side_length, other.Height) { }
         public override float GetArea()
         {
             return (Base_length_1 + Base_length_2) / 2 * Height;
@@ -283,6 +301,10 @@ namespace _2024_06_26___HW__Inheritance_
         public override float GetPerimetr()
         {
             return (Side_length * 2) + Base_length_1 + Base_length_2;
+        }
+        public override string ToString()
+        {
+            return $"Trapeze | Base length 1 : {Base_length_1}, Base length 2 : {Base_length_2}, Side length : {Side_length}, Height : {Height}\nPerimetr : {GetPerimetr()}, Area : {GetArea()}\n";
         }
     }
     class Circle : Shape
@@ -304,7 +326,6 @@ namespace _2024_06_26___HW__Inheritance_
         {
             Radius = radius;
         }
-        public Circle(Circle other) : this(other.Radius) { }
         public override float GetArea()
         {
             return (float)(Math.PI * Radius * Radius);
@@ -312,6 +333,10 @@ namespace _2024_06_26___HW__Inheritance_
         public override float GetPerimetr()
         {
             return (float)(2 * Math.PI * Radius);
+        }
+        public override string ToString()
+        {
+            return $"Circle | Radius : {Radius}\nPerimetr : {GetPerimetr()}, Area : {GetArea()}\n";
         }
     }
     class Ellipse : Shape
@@ -346,7 +371,6 @@ namespace _2024_06_26___HW__Inheritance_
             Base_axis = base_axis;
             Additional_axis = additional_axis;
         }
-        public Ellipse(Ellipse other) : this(other.Base_axis, other.Additional_axis) { }
         public override float GetArea()
         {
             return (float)(Math.PI * Base_axis * Additional_axis);
@@ -355,6 +379,10 @@ namespace _2024_06_26___HW__Inheritance_
         {
             double h = Math.Pow((Base_axis - Additional_axis), 2) / Math.Pow((Base_axis + Additional_axis), 2);
             return (float)(Math.PI * (Base_axis + Additional_axis) * (1 + (3 * h) / (10 + Math.Sqrt(4 - 3 * h))));
+        }
+        public override string ToString()
+        {
+            return $"Ellipse | Base axis : {Base_axis}, Additional axis : {Additional_axis}\nPerimetr : {GetPerimetr()}, Area : {GetArea()}\n";
         }
     }
     class Composite_figure
@@ -367,9 +395,13 @@ namespace _2024_06_26___HW__Inheritance_
         public Composite_figure(params Shape[] shapes)
         {
             this.shapes = new Shape[shapes.Length];
-            for (int i = 0; i < shapes.Length; i++)
+            this.shapes = shapes;
+        }
+        public void Print()
+        {
+            foreach (Shape shape in shapes)
             {
-                this.shapes[i] = new Parallelogram();
+                WriteLine(shape.ToString());
             }
         }
     }
@@ -377,7 +409,8 @@ namespace _2024_06_26___HW__Inheritance_
     {
         static void Main(string[] args)
         {
-            
+            Composite_figure composite_ = new Composite_figure(new Triangle(5.5f, 4, 6.5f), new Square(12.4f), new Rectangle(12.3f, 8.8f), new Circle(4.7f));
+            composite_.Print();
         }
     }
 }
