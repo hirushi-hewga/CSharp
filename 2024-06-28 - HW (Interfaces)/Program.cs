@@ -2,6 +2,13 @@
 using static System.Console;
 namespace _2024_06_28___HW__Interfaces_
 {
+    interface ISort
+    {
+        void SortAsc();
+        void SortDesc();
+        void SortByParam(bool isAsc);
+    }
+
     interface IMath
     {
         int Max();
@@ -17,7 +24,7 @@ namespace _2024_06_28___HW__Interfaces_
     }
 
 
-    class Array : IOutput, IMath
+    class Array : IOutput, IMath, ISort
     {
         private int[] arr;
         public int Arr
@@ -50,7 +57,7 @@ namespace _2024_06_28___HW__Interfaces_
 
         public void Show(string info)
         {
-            Write(info + " - ");
+            Write(info + " : ");
             Show();
         }
 
@@ -66,7 +73,7 @@ namespace _2024_06_28___HW__Interfaces_
         {
             int min = arr[0];
             for (int i = 0; i < arr.Length; i++)
-                if (arr[i] > min) min = arr[i];
+                if (arr[i] < min) min = arr[i];
             return min;
         }
 
@@ -84,6 +91,23 @@ namespace _2024_06_28___HW__Interfaces_
                 if (arr[i] == value_to_search) return true;
             return false;
         }
+
+        public void SortAsc()
+        {
+            System.Array.Sort(arr);
+        }
+
+        public void SortDesc()
+        {
+            SortAsc();
+            System.Array.Reverse(arr);
+        }
+
+        public void SortByParam(bool isAsc)
+        {
+            if (isAsc) SortAsc();
+            else SortDesc();
+        }
     }
 
 
@@ -93,7 +117,7 @@ namespace _2024_06_28___HW__Interfaces_
         {
             #region 1
 
-            
+            /*
             
             try
             {
@@ -114,7 +138,45 @@ namespace _2024_06_28___HW__Interfaces_
                 WriteLine(ex.Message);
             }
 
-            
+            */
+
+            #endregion
+
+            #region 2
+
+            /*
+
+            Array array = new Array(20);
+            array.Show("Array");
+            WriteLine($"Min : {array.Min()}");
+            WriteLine($"Max : {array.Max()}");
+            WriteLine($"Avg : {array.Avg()}");
+            int number = 22;
+            bool isFound = array.Search(number);
+            if (isFound)
+                WriteLine("Number {0} is found", number);
+            else
+                WriteLine("Number {0} is not found", number);
+
+            */
+
+            #endregion
+
+            #region 3
+
+            /*
+
+            Array array1 = new Array(8);
+            Array array2 = new Array(8);
+            array1.Show("Array 1");
+            array2.Show("Array 2");
+            WriteLine();
+            array1.SortByParam(true);
+            array2.SortByParam(false);
+            array1.Show("Array 1");
+            array2.Show("Array 2");
+
+            */
 
             #endregion
         }
