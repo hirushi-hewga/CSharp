@@ -17,7 +17,7 @@ namespace _2024_07_01___Lesson__Standart_interfaces_
         public DateTime Birthday{ get; set; }
         public StudentCard StudentCard { get; set; }
     }
-    class Auditory
+    class Auditory : IEnumerable
     {
         Student[] students;
         public Auditory()
@@ -54,7 +54,6 @@ namespace _2024_07_01___Lesson__Standart_interfaces_
                     StudentCard = new StudentCard() { Number = 963258, Series = "BK" }
                 }
             };
-            students.GetEnumerator();
         }
     }
     internal class Program
