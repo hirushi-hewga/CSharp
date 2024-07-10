@@ -43,7 +43,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-26 - HW (Inheritanc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-28 - Lesson (Interfaces)", "2024-06-28 - Lesson (Interfaces)\2024-06-28 - Lesson (Interfaces).csproj", "{94CCBC15-0618-41BC-BC6D-F8D3E8EF9BC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-06-28 - HW (Interfaces)", "2024-06-28 - HW (Interfaces)\2024-06-28 - HW (Interfaces).csproj", "{6FADA33A-C9AF-48AC-93C6-91F708C89FDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-06-28 - HW (Interfaces)", "2024-06-28 - HW (Interfaces)\2024-06-28 - HW (Interfaces).csproj", "{6FADA33A-C9AF-48AC-93C6-91F708C89FDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-01 - Lesson (Standart interfaces)", "2024-07-01 - Lesson (Standart interfaces)\2024-07-01 - Lesson (Standart interfaces).csproj", "{0359B7A4-FA81-4D51-B17B-F6A737139F36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +137,10 @@ Global
 		{6FADA33A-C9AF-48AC-93C6-91F708C89FDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FADA33A-C9AF-48AC-93C6-91F708C89FDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FADA33A-C9AF-48AC-93C6-91F708C89FDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0359B7A4-FA81-4D51-B17B-F6A737139F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0359B7A4-FA81-4D51-B17B-F6A737139F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0359B7A4-FA81-4D51-B17B-F6A737139F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0359B7A4-FA81-4D51-B17B-F6A737139F36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
