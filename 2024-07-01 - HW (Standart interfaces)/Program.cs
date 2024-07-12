@@ -221,6 +221,9 @@ namespace _2024_07_01___HW__Standart_interfaces_
             {
                 Console.WriteLine(movie);
             }
+
+
+
             /* 
             Console.WriteLine("\n============ Sort by title ============\n");
             cinema.Sort();
@@ -241,10 +244,22 @@ namespace _2024_07_01___HW__Standart_interfaces_
                 Console.WriteLine(movie);
             }
             */
+
+
+
+            /*
             Movie copy = (Movie) cinema.Movies[2].Clone();
             Console.WriteLine($"================ Movie ================\n{cinema.Movies[2]}");
             Console.WriteLine($"================ Clone ================\n{copy}");
-            copy
+            copy.Title = "Parasite";
+            copy.Director = new Director { FirstName = "Bong", LastName = "Joon-ho" };
+            copy.Country = "South Korea";
+            copy.Genre = Genre.Drama;
+            copy.Year = 2019;
+            copy.Rating = 5;
+            Console.WriteLine($"================ Movie ================\n{cinema.Movies[2]}");
+            Console.WriteLine($"================ Clone ================\n{copy}");
+            */
         }
     }
 }
