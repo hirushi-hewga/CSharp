@@ -58,7 +58,7 @@ namespace _2024_07_02___Lesson__Delegates_
                 throw new DivideByZeroException();
         }
     }
-    public delegate int ChangeDelegate(int value)
+    public delegate int ChangeDelegate(int value);
     internal class Program
     {
         public static void DoOperator(double a, double b, CalculatorDelegate operation)
