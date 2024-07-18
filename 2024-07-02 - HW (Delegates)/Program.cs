@@ -11,7 +11,7 @@ namespace _2024_07_02___HW__Delegates_
         }
         public static int Prime(int v)
         {
-            if (v == 0 || v == 1) return 0;
+            if (v <= 0 || v == 1) return 0;
             else {
                 for (int i = 2; i <= v / 2; i++)
                     if (v % i == 0) return 0;
@@ -45,9 +45,9 @@ namespace _2024_07_02___HW__Delegates_
             }
             return value;
         }
-        public static void ChangeValues(int[] arr, ChangeDelegate calculate)
+        public static void ChangeValues(int[] arr, ChangeDelegate change)
         {
-            calculate.Invoke(arr);
+            change.Invoke(arr);
         }
         public static void ChangeValues(int[] arr, Comparison<int> comparison)
         {
@@ -121,12 +121,14 @@ namespace _2024_07_02___HW__Delegates_
                 if (choice == 3)
                 {
                     ChangeValues(arr, Array.SortByOddEven);
-                    WriteLine($"\nRes : {arr}");
+                    Write("\nRes : ");
+                    PrintArray(arr);
                 }
                 else
                 {
                     ChangeValues(arr, changeDelegates[choice - 1]);
-                    WriteLine($"\nRes : {arr}");
+                    Write("\nRes : ");
+                    PrintArray(arr);
                 }
             }
 
