@@ -30,13 +30,7 @@
 
             Console.WriteLine($"Count words : {str.NumberWords()}");
             Console.WriteLine($"Count symbols 'o' : {str.NumberSymbols('o')}");
-
-
-
-
-
-
-
+            Console.WriteLine($"Count symbols 'a' : {str.NumberSymbols('a')}");
         }
     }
 }
