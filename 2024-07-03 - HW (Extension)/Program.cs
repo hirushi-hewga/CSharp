@@ -14,31 +14,53 @@
         }
         public static string Encryption(this string word, int number)
         {
-            string encrypted_word = word;
-            for (int i = 0; i < encrypted_word.Length; i++)
+            char[] encrypted_word = new char[word.Length];
+
+            for (int i = 0; i < word.Length; i++)
             {
-                if (char.IsUpper(encrypted_word[i]))
+                char ch = word[i];
+
+                if (char.IsUpper(ch))
                 {
                     for (int j = 0; j < number; j++)
                     {
-                        if (encrypted_word[i] == 90)
-                            encrypted_word[i] = (char)65;
+                        if (ch == 90)
+                            ch = (char)65;
                         else
-                            encrypted_word[i] = (char)(encrypted_word[i] + 1);
+                            ch = (char)(ch + 1);
+                    }
+
+                }
+                else if (char.IsLower(ch))
+                {
+                    for (int j = 0; j < number; j++)
+                    {
+                        if (ch == 122)
+                            ch = (char)97;
+                        else
+                            ch = (char)(ch + 1);
                     }
                 }
-                else if (char.IsLower(encrypted_word[i]))
+                encrypted_word[i] = ch;
+            }
+            return new string(encrypted_word);
+        }
+        public static int EqualsNumbers(this Array array)
+        {
+            int[] arr = (int[])array;
+            int count = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr.Length; j++)
                 {
-                    for (int j = 0; j < number; j++)
+                    if (arr[i] == arr[j] && i != j)
                     {
-                        if (encrypted_word[i] == 122)
-                            encrypted_word[i] = (char)97;
-                        else
-                            encrypted_word[i] = (char)(encrypted_word[i] + 1);
+                        count++;
+                        break;
                     }
                 }
             }
-            return encrypted_word;
+            return count;
         }
     }
     internal class Program
@@ -61,10 +83,27 @@
 
             #region Encryption
 
-            /**/
+            /*
             string word;
             Console.Write("Enter word : ");
             word = Console.ReadLine();
+            Console.WriteLine($"Word : {word}");
+            Console.WriteLine($"Encrypted word : {word.Encryption(3)}");
+            */
+
+            #endregion
+
+            #region Count_Equal_Numbers
+
+            /**/
+            int[] arr = new int[16];
+            Random random = new Random();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = random.Next(16);
+                Console.Write("{0} ", arr[i]);
+            }
+            Console.WriteLine($"\nEqual numbers : {arr.EqualsNumbers()}");
 
 
             #endregion
