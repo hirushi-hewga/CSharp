@@ -57,7 +57,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-03 - Lesson (Extens
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-03 - Lesson (Events)", "2024-07-03 - Lesson (Events)\2024-07-03 - Lesson (Events).csproj", "{BE6AC5B2-3398-4690-9975-DEC89F724946}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-03 - HW (Extension)", "2024-07-03 - HW (Extension)\2024-07-03 - HW (Extension).csproj", "{A4301694-EB2B-449F-A734-AA892EDC88E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-03 - HW (Extension)", "2024-07-03 - HW (Extension)\2024-07-03 - HW (Extension).csproj", "{A4301694-EB2B-449F-A734-AA892EDC88E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-03 - HW (Events)", "2024-07-03 - HW (Events)\2024-07-03 - HW (Events).csproj", "{92D2969F-F36D-4593-B461-FA6531830278}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -177,6 +179,10 @@ Global
 		{A4301694-EB2B-449F-A734-AA892EDC88E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4301694-EB2B-449F-A734-AA892EDC88E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4301694-EB2B-449F-A734-AA892EDC88E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D2969F-F36D-4593-B461-FA6531830278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D2969F-F36D-4593-B461-FA6531830278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D2969F-F36D-4593-B461-FA6531830278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D2969F-F36D-4593-B461-FA6531830278}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
