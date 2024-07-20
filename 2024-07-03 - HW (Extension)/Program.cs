@@ -12,6 +12,34 @@
             }
             return isPalindrome;
         }
+        public static string Encryption(this string word, int number)
+        {
+            string encrypted_word = word;
+            for (int i = 0; i < encrypted_word.Length; i++)
+            {
+                if (char.IsUpper(encrypted_word[i]))
+                {
+                    for (int j = 0; j < number; j++)
+                    {
+                        if (encrypted_word[i] == 90)
+                            encrypted_word[i] = (char)65;
+                        else
+                            encrypted_word[i] = (char)(encrypted_word[i] + 1);
+                    }
+                }
+                else if (char.IsLower(encrypted_word[i]))
+                {
+                    for (int j = 0; j < number; j++)
+                    {
+                        if (encrypted_word[i] == 122)
+                            encrypted_word[i] = (char)97;
+                        else
+                            encrypted_word[i] = (char)(encrypted_word[i] + 1);
+                    }
+                }
+            }
+            return encrypted_word;
+        }
     }
     internal class Program
     {
