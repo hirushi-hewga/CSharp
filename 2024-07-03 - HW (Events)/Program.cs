@@ -2,6 +2,7 @@
 
 namespace _2024_07_03___HW__Events_
 {
+    public delegate void CourseDelegate(float c);
     class Trader
     {
         public string FirstName { get; set; }
@@ -9,46 +10,70 @@ namespace _2024_07_03___HW__Events_
         public DateTime Birthday { get; set; }
         public float USD { get; set; }
         public float UAH { get; set; }
-        public void PassExam(string task)
+        public void CourseHandler(float dollar_course)
         {
-            Console.WriteLine($"{FirstName} {LastName} , Birthday : {Birthday.ToShortDateString()}\nUSD : {USD} , UAH : {UAH}\n");
+            Console.WriteLine($"{FirstName} {LastName} \n");
         }
+        // sold - продав
+        // bought - купив
     }
     class Exchange
     {
+        public event CourseDelegate CourseDelegate;
+        public void CreateCourse()
+        {
 
+        }
     }
     internal class Program
     {
         static void Main(string[] args)
         {
-            List<Trader> students = new List<Trader>
+            List<Trader> traders = new List<Trader>
             {
                 new Trader
                 {
-                    FirstName = "Bill",
-                    LastName = "Tomson",
-                    Birthday = new DateTime(2005, 4, 7)
+                    FirstName = "Madden",
+                    LastName = "Goddard",
+                    Birthday = new DateTime(1996, 4, 7),
+                    UAH = 2984,
+                    USD = 874
                 },
                 new Trader
                 {
-                    FirstName = "Olga",
-                    LastName = "Ivanchuk",
-                    Birthday = new DateTime(2003, 10, 17)
+                    FirstName = "Kells",
+                    LastName = "Jean",
+                    Birthday = new DateTime(1992, 10, 17),
+                    UAH = 1283,
+                    USD = 245
                 },
                 new Trader
                 {
-                    FirstName = "Candice",
-                    LastName = "Leman",
-                    Birthday = new DateTime(2006, 3, 12)
+                    FirstName = "Newbold",
+                    LastName = "Duckworth",
+                    Birthday = new DateTime(1999, 3, 12),
+                    UAH = 2793,
+                    USD = 574
                 },
                 new Trader
                 {
-                    FirstName = "Nicol",
-                    LastName = "Taylor",
-                    Birthday = new DateTime(2004, 7, 14)
+                    FirstName = "Waite",
+                    LastName = "Cox",
+                    Birthday = new DateTime(1994, 7, 14),
+                    UAH = 1854,
+                    USD = 265
                 }
             };
+
+            Exchange exchange = new Exchange();
+            foreach (Trader trader in traders)
+            {
+                exchange.CourseDelegate += trader.CourseHandler;
+            }
+
+
+
+
         }
     }
 }
