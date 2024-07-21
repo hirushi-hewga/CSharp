@@ -12,17 +12,39 @@ namespace _2024_07_03___HW__Events_
         public float UAH { get; set; }
         public void CourseHandler(float dollar_course)
         {
-            Console.WriteLine($"{FirstName} {LastName} \n");
+            if (dollar_course < 27)
+            {
+                float amountToBuy = UAH / dollar_course;
+                Console.WriteLine($"{FirstName} {LastName} bought {amountToBuy:F2} USD at the rate of {dollar_course} UAH.");
+                UAH = 0;
+                USD += amountToBuy;
+            }
+            else if (dollar_course > 30)
+            {
+                if (USD > 0)
+                {
+                    Console.WriteLine($"{FirstName} {LastName} sold {USD:F2} USD at the rate of {dollar_course} UAH.");
+                    UAH += USD * dollar_course;
+                    USD = 0;
+                }
+                else
+                {
+                    Console.WriteLine($"{FirstName} {LastName} has no USD to sell.");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"{FirstName} {LastName} is waiting for better rates.");
+            }
+            
         }
-        // sold - продав
-        // bought - купив
     }
     class Exchange
     {
         public event CourseDelegate CourseDelegate;
-        public void CreateCourse()
+        public void CreateCourse(float course)
         {
-
+            CourseDelegate?.Invoke(course);
         }
     }
     internal class Program
@@ -71,9 +93,13 @@ namespace _2024_07_03___HW__Events_
                 exchange.CourseDelegate += trader.CourseHandler;
             }
 
+            float[] courses = { 26.5f, 31f, 29f, 27.5f };
 
-
-
+            foreach (float course in courses)
+            {
+                Console.WriteLine($"\nCurrent dollar course : {course:F2} UAH");
+                exchange.CreateCourse(course);
+            }
         }
     }
 }
