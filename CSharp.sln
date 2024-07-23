@@ -69,6 +69,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-05 - Lesson (Dispos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-05 - Lesson (Dispose_template)", "2024-07-05 - Lesson (Dispose_template)\2024-07-05 - Lesson (Dispose_template).csproj", "{DE5C51F6-805A-4A81-A2ED-6EA2E075514C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-05 - Lesson (try_finally)", "2024-07-05 - Lesson (try_finally)\2024-07-05 - Lesson (try_finally).csproj", "{68EFDAA5-3CF5-47D1-B1BF-41F8BB1DEC68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -207,6 +209,10 @@ Global
 		{DE5C51F6-805A-4A81-A2ED-6EA2E075514C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE5C51F6-805A-4A81-A2ED-6EA2E075514C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE5C51F6-805A-4A81-A2ED-6EA2E075514C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68EFDAA5-3CF5-47D1-B1BF-41F8BB1DEC68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68EFDAA5-3CF5-47D1-B1BF-41F8BB1DEC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68EFDAA5-3CF5-47D1-B1BF-41F8BB1DEC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68EFDAA5-3CF5-47D1-B1BF-41F8BB1DEC68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
