@@ -63,13 +63,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-03 - HW (Events)", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-05 - Lesson (Garbage collection)", "2024-07-05 - Lesson (Garbage collection)\2024-07-05 - Lesson (Garbage collection).csproj", "{3F76A0B6-22CA-4BEF-8F01-72C3C7184F54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-05 - Lesson (Finalizer)", "2024-07-05 - Lesson (Finalizer)\2024-07-05 - Lesson (Finalizer).csproj", "{78ADDE62-334E-4449-B769-E20031B54A36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-05 - Lesson (Finalizer)", "2024-07-05 - Lesson (Finalizer)\2024-07-05 - Lesson (Finalizer).csproj", "{78ADDE62-334E-4449-B769-E20031B54A36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-05 - Lesson (Dispose)", "2024-07-05 - Lesson (Dispose)\2024-07-05 - Lesson (Dispose).csproj", "{84C2366B-ADE7-4506-8216-49A2F9A5D6AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-05 - Lesson (Dispose)", "2024-07-05 - Lesson (Dispose)\2024-07-05 - Lesson (Dispose).csproj", "{84C2366B-ADE7-4506-8216-49A2F9A5D6AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-05 - Lesson (Dispose_template)", "2024-07-05 - Lesson (Dispose_template)\2024-07-05 - Lesson (Dispose_template).csproj", "{DE5C51F6-805A-4A81-A2ED-6EA2E075514C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-05 - Lesson (Dispose_template)", "2024-07-05 - Lesson (Dispose_template)\2024-07-05 - Lesson (Dispose_template).csproj", "{DE5C51F6-805A-4A81-A2ED-6EA2E075514C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-05 - Lesson (try_finally)", "2024-07-05 - Lesson (try_finally)\2024-07-05 - Lesson (try_finally).csproj", "{68EFDAA5-3CF5-47D1-B1BF-41F8BB1DEC68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-05 - Lesson (try_finally)", "2024-07-05 - Lesson (try_finally)\2024-07-05 - Lesson (try_finally).csproj", "{68EFDAA5-3CF5-47D1-B1BF-41F8BB1DEC68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-15 - HW (Intro to Design Pattern)", "2024-07-15 - HW (Intro to Design Pattern)\2024-07-15 - HW (Intro to Design Pattern).csproj", "{CFBF2EDD-E2A1-439F-93F0-733C992EE93D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -213,6 +215,10 @@ Global
 		{68EFDAA5-3CF5-47D1-B1BF-41F8BB1DEC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68EFDAA5-3CF5-47D1-B1BF-41F8BB1DEC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68EFDAA5-3CF5-47D1-B1BF-41F8BB1DEC68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFBF2EDD-E2A1-439F-93F0-733C992EE93D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFBF2EDD-E2A1-439F-93F0-733C992EE93D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFBF2EDD-E2A1-439F-93F0-733C992EE93D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFBF2EDD-E2A1-439F-93F0-733C992EE93D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
