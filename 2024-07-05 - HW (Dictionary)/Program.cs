@@ -1,4 +1,6 @@
-﻿namespace _2024_07_05___HW__Dictionary_
+﻿using System.Text;
+
+namespace _2024_07_05___HW__Dictionary_
 {
     class User
     {
@@ -144,6 +146,32 @@
 
             #endregion
 
+            #region Statistic
+
+
+            Console.OutputEncoding = Encoding.UTF8;
+            string text = "Ось будинок, який збудував Джек. А це пшениця, " +
+                "яка у темній коморі зберігається у будинку, який збудував " +
+                "Джек. А це веселий птах-синиця, який часто краде пшеницю, " +
+                "яка у темній коморі зберігається у будинку, який збудував Джек.";
+            Dictionary<string, int> Statistic = new Dictionary<string, int>();
+            string[] words = text.Split(new char[] { ' ', '.', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (Statistic.ContainsKey(words[i]))
+                    Statistic[words[i]]++;
+                else
+                    Statistic.Add(words[i], 1);
+            }
+            Console.WriteLine(text);
+            Console.WriteLine();
+            foreach (var item in Statistic)
+            {
+                Console.WriteLine("{0} - {1}", item.Value, item.Key);
+            }
+
+
+            #endregion
         }
     }
 }
