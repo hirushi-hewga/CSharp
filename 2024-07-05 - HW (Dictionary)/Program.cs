@@ -118,6 +118,9 @@
     {
         static void Main(string[] args)
         {
+            #region PhoneBook
+
+            /*
             PhoneBook phoneBook = new PhoneBook();
             try
             {
@@ -137,6 +140,10 @@
             phoneBook.SearchBySurname("Shevchenko");
             phoneBook.DeleteByNumber("323667856");
             phoneBook.ShowAll();
+            */
+
+            #endregion
+
         }
     }
 }
