@@ -148,7 +148,7 @@ namespace _2024_07_05___HW__Dictionary_
 
             #region Statistic
 
-
+            /*
             Console.OutputEncoding = Encoding.UTF8;
             string text = "Ось будинок, який збудував Джек. А це пшениця, " +
                 "яка у темній коморі зберігається у будинку, який збудував " +
@@ -169,7 +169,7 @@ namespace _2024_07_05___HW__Dictionary_
             {
                 Console.WriteLine("{0} - {1}", item.Value, item.Key);
             }
-
+            */
 
             #endregion
         }
