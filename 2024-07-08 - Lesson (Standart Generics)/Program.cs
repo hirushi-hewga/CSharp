@@ -11,7 +11,7 @@ namespace _2024_07_08___Lesson__Standart_Generics_
 
             #region ArrayList
 
-
+            /*
             ArrayList arrayList1 = new ArrayList();
             ArrayList arrayList2 = new ArrayList(new int[] { 1, 2, 5, 8 });
             ArrayList arrayList3 = new ArrayList(10);
@@ -49,32 +49,102 @@ namespace _2024_07_08___Lesson__Standart_Generics_
                     Console.WriteLine(a);
                 }
             }
+            */
 
-
-
-            Console.WriteLine("\nПочаткова колекція :");
+            /*
+            Console.Write("\nПочаткова колекція :");
             ArrayList arrayList = new ArrayList(new int[] { 1, 2, 3, 4 });
             foreach (int i in arrayList)
             {
-                Console.WriteLine($"{i} ");
+                Console.Write($"{i} ");
             }
-            Console.WriteLine("Додавання елемента :");
+            Console.Write("\n\nДодавання елемента :");
             arrayList.Insert(2, "Hello");
             //arrayList.Sort();
             foreach (object item in arrayList)
             {
-                Console.WriteLine($"{item} ");
+                Console.Write($"{item} ");
             }
-            Console.WriteLine("\n\nВидалення елемента: ");
+            Console.Write("\n\nВидалення елемента: ");
             arrayList.RemoveAt(3);
             foreach (object item in arrayList)
             {
-                Console.WriteLine($"{item} ");
+                Console.Write($"{item} ");
             }
             Console.WriteLine("\n\nІндекс елемента \"Hello\" : " + arrayList.IndexOf("Hello"));
             Console.Write("\nОтримання діапазону : ");
+            ArrayList days = new ArrayList(new string[] { "Sunday", "Monday", "Tuesday",
+                "Wednesday", "Thursday", "Friday", "Saturday" });
+            ArrayList onlyWork = new ArrayList(days.GetRange(1, 5));
+            foreach (string s in onlyWork)
+            {
+                Console.Write($"{s} ");
+            }
+            Console.Write("\n\nСортування колекції : ");
+            onlyWork.Sort();
+            foreach (string s in onlyWork)
+            {
+                Console.Write($"{s} ");
+            }
+            Console.WriteLine();
+            */
 
+            #endregion
 
+            #region Stack
+
+            /*
+            Stack stack1 = new Stack();
+            Stack stack2 = new Stack(7);
+            Stack stack3 = new Stack(new ArrayList { 3, 5 });
+            Stack stack = new Stack();
+            Console.Write("Метод Push() : ");
+            stack.Push("one");
+            stack.Push("two");
+            stack.Push("three");
+            foreach (string item in stack)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.Write("\n\nМетод Pop() : ");
+            stack.Pop();
+            foreach (string item in stack)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine($"\n\nМетод Peek() : {(string)stack.Peek()}");
+            Console.WriteLine("\nЧи існує елеммент \"ten\" : " + stack.Contains("ten"));
+            Console.WriteLine("\nЧи існує елеммент \"two\" : " + stack.Contains("two"));
+            Console.Write("\nМетод CopyTo() : ");
+            string[] strArr = new string[stack.Count];
+            stack.CopyTo(strArr, 0);
+            foreach (string item in strArr)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine("\n\nКількість елементів : " + stack.Count);
+            stack.Clear();
+            Console.WriteLine("\nКількість елементів виклику методу Clear() : " + stack.Count);
+            */
+
+            /*
+            var stackk = new Stack();
+            stackk.Push("First");
+            stackk.Push("Secons");
+            stackk.Push("Third");
+            stackk.Push("Fourth");
+            // Peek - get first
+            if (stackk.Peek() is string)
+            {
+                string str = (string)stackk.Pop();
+                Console.WriteLine(str);
+            }
+            while (stackk.Count > 0)
+            {
+                Console.WriteLine(stackk.Pop());
+            }
+            Console.WriteLine(stackk.Pop());
+            */
 
             #endregion
         }
