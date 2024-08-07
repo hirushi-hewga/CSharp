@@ -1,8 +1,31 @@
 ﻿using System.Collections;
+using System.Drawing;
 using System.Text;
 
 namespace _2024_07_08___Lesson__Standart_Generics_
 {
+    class MyClass
+    {
+        public int Number { get; set; }
+
+        public MyClass()
+        {
+            Number = 0;
+        }
+        public MyClass(int number)
+        {
+            Number = number;
+        }
+
+        public void Show()
+        {
+            Console.WriteLine($"Number : {Number}");
+        }
+        public static explicit operator int(MyClass myClass)
+        {
+            return myClass.Number;
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
@@ -145,6 +168,43 @@ namespace _2024_07_08___Lesson__Standart_Generics_
             }
             Console.WriteLine(stackk.Pop());
             */
+
+            #endregion
+
+            #region BoxingUnboxing
+
+            /*
+            object obj = new object(); // ref
+            int number = 45; // value - stack
+
+            // Boxing
+            obj = (object)number; // value - ref
+            Console.WriteLine(obj);
+
+            // Unboxing
+            number = (int)obj;
+            Console.WriteLine(number);
+
+            // Boxing
+            MyClass myClass = new MyClass(number); // value => ref
+
+            // Unboxing
+            int res = (int)myClass;
+            */
+
+
+            int a = 5;
+            string str = "Hello";
+            ArrayList arrayList1 = new ArrayList(new int[] { 1, 2, 5, 8 });
+            ArrayList arrayList3 = new ArrayList(10);
+            Console.WriteLine($"Місткість по замовчуванню : {arrayList1.Capacity}");
+            arrayList1.Add("one");
+            arrayList1.Add(3.14f);
+            arrayList1.Add(0.999);
+            arrayList1.Add(3.36m);
+            arrayList1.Add(false);
+
+
 
             #endregion
         }
