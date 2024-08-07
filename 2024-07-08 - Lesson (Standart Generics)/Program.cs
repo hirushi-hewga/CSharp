@@ -4,6 +4,15 @@ using System.Text;
 
 namespace _2024_07_08___Lesson__Standart_Generics_
 {
+    class Student
+    {
+        public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return $"Name : {Name}";
+        }
+    }
     class MyClass
     {
         public int Number { get; set; }
@@ -192,7 +201,7 @@ namespace _2024_07_08___Lesson__Standart_Generics_
             int res = (int)myClass;
             */
 
-
+            /*
             int a = 5;
             string str = "Hello";
             ArrayList arrayList1 = new ArrayList(new int[] { 1, 2, 5, 8 });
@@ -203,8 +212,64 @@ namespace _2024_07_08___Lesson__Standart_Generics_
             arrayList1.Add(0.999);
             arrayList1.Add(3.36m);
             arrayList1.Add(false);
+            List<Student> list = new List<Student>();
+            int b = (int)arrayList1[0];
+            */
 
+            #endregion
 
+            #region SortedList HashTable
+
+            /*
+            SortedList sortedList = new SortedList();
+            sortedList.Add(3, 6.7);
+            sortedList.Add(2, new Student
+            {
+                Name = "Jack"
+            });
+            sortedList.Add(1, "one");
+            //sortedList.Add("one", 1);
+            Console.WriteLine("----- Вивід ключ-значення ------\n");
+            foreach (object item in sortedList.Keys)
+            {
+                Console.WriteLine($"Ключ : {item}  Значення : {sortedList[item]}");
+            }
+            Console.WriteLine("\n----- Вивід ключ-значення по індексу ------\n");
+            for (int i = 0; i < sortedList.Count; i++)
+            {
+                Console.WriteLine($"Ключ : {sortedList.GetKey(i)}  Значення : {sortedList.GetByIndex(i)}");
+            }
+            Console.WriteLine("\n----- Колекція значень ------\n");
+            foreach (object item in sortedList.Values)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("\n----- Видалення елемента за ключем 3 ------\n");
+            sortedList.Remove(3);
+            Console.WriteLine("Чи існує елемент 3 : " +
+                $"{sortedList.ContainsKey(3)}"); // false
+            */
+
+            /*
+            Hashtable hash = new Hashtable();
+            hash.Add(1, "John");
+            hash.Add("two", new Student { Name = "Jack" });
+            hash.Add("Pi", 3.14159);
+            hash.Add(true, 3.14159);
+            hash.Add(3.14, "Pi");
+            Console.WriteLine("----- Вивід ключ-значення ------\n");
+            
+            foreach (object item in hash.Keys)
+            {
+                Console.WriteLine("Ключ : " + item + "Значення : " + hash[item]);
+            }
+
+            Console.WriteLine("\n----- Колекція значень після додавання елемента ------\n");
+            foreach (object item in hash.Values) Console.WriteLine(item);
+            Console.WriteLine("\n----- Видалення елемента за ключем \"two\" ------\n");
+            hash.Remove("two");
+            Console.WriteLine($"Чи існує елемент \"two\" : {hash.ContainsKey("two")}"); // false
+            */
 
             #endregion
         }
