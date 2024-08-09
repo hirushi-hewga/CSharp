@@ -79,7 +79,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-05 - HW (Dictionary
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-08 - Lesson (Standart Generics)", "2024-07-08 - Lesson (Standart Generics)\2024-07-08 - Lesson (Standart Generics).csproj", "{65431C74-D91B-4080-80CF-8B937CBB4C9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-08 - Lesson (Generics)", "2024-07-08 - Lesson (Generics)\2024-07-08 - Lesson (Generics).csproj", "{45BB36BE-B296-49BB-937D-32187956C1CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-08 - Lesson (Generics)", "2024-07-08 - Lesson (Generics)\2024-07-08 - Lesson (Generics).csproj", "{45BB36BE-B296-49BB-937D-32187956C1CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-08 - HW (Generics)", "2024-07-08 - HW (Generics)\2024-07-08 - HW (Generics).csproj", "{D62C8263-354F-4A1B-87D1-D76F699CEFCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -243,6 +245,10 @@ Global
 		{45BB36BE-B296-49BB-937D-32187956C1CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45BB36BE-B296-49BB-937D-32187956C1CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45BB36BE-B296-49BB-937D-32187956C1CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D62C8263-354F-4A1B-87D1-D76F699CEFCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D62C8263-354F-4A1B-87D1-D76F699CEFCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D62C8263-354F-4A1B-87D1-D76F699CEFCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D62C8263-354F-4A1B-87D1-D76F699CEFCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
