@@ -201,7 +201,7 @@
 
             #region 5
 
-
+            /*
             Queue<int> queue = new Queue<int>(10);
             queue.Enqueue(10);
             queue.Enqueue(20);
@@ -214,7 +214,7 @@
             Console.WriteLine("\nCount : " + queue.Count());
             Console.WriteLine("Dequeue : " + queue.Dequeue());
             queue.Show();
-
+            */
 
             #endregion
         }
