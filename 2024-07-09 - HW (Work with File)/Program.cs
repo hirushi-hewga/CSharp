@@ -1,4 +1,6 @@
-﻿namespace _2024_07_09___HW__Work_with_File_
+﻿using System.Collections;
+
+namespace _2024_07_09___HW__Work_with_File_
 {
     internal class Program
     {
@@ -27,6 +29,8 @@
 
 
             string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\file2.bin";
+            if (File.Exists(filePath))
+                File.Delete(filePath);
             FileStream write = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write);
 
             int[] arr = new int[5];
@@ -39,11 +43,25 @@
 
             using (BinaryWriter bw = new BinaryWriter(write))
             {
-            for (int i = 0; i < arr.Length; i++)
-                bw.Write($"{arr[i]} ");
+                for (int i = 0; i < arr.Length; i++)
+                    bw.Write($"{arr[i]}");
             }
 
             Console.WriteLine("Array is saved to file2.bin on Desktop");
+
+            int[] arr2 = new int[(int)(new FileInfo(filePath).Length / sizeof(int))];
+            using (FileStream read = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            using (BinaryReader br = new BinaryReader(read))
+            {
+                for (int i = 0; i < arr2.Length; i++)
+                    arr2[i] = br.ReadInt32();
+            }
+
+            Console.WriteLine("\n------------- file2.bin -------------");
+            foreach (int item in arr2)
+            {
+                Console.Write($"{item} ");
+            }
 
 
             #endregion
