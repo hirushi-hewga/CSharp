@@ -10,10 +10,13 @@ namespace _2024_07_09___HW__Work_with_File_
 
             /*
             string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\file1.bin";
+            if (File.Exists(filePath))
+                File.Delete(filePath);
             FileStream file = File.Create(filePath);
             BinaryWriter bw = new BinaryWriter(file);
 
-            bw.Write("Hello, World!!!");
+            string str = "Hello, World!!!";
+            bw.Write(str);
             bw.Close();
 
             using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
@@ -25,7 +28,7 @@ namespace _2024_07_09___HW__Work_with_File_
 
             #endregion
 
-            #region 2
+            #region 2,3
 
             /*
             string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\file2.bin";
@@ -63,6 +66,16 @@ namespace _2024_07_09___HW__Work_with_File_
                 Console.Write($"{item} ");
             }
             */
+
+            #endregion
+
+            #region 4
+
+
+            string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\file3.bin";
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+
 
             #endregion
         }
