@@ -27,11 +27,10 @@ namespace _2024_07_09___HW__Work_with_File_
 
             #region 2
 
-
+            /*
             string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\file2.bin";
             if (File.Exists(filePath))
                 File.Delete(filePath);
-            FileStream write = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write);
 
             int[] arr = new int[5];
             Console.WriteLine("Enter array elements to store in file");
@@ -41,10 +40,11 @@ namespace _2024_07_09___HW__Work_with_File_
                 arr[i] = int.Parse(Console.ReadLine());
             }
 
+            using (FileStream write = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write))
             using (BinaryWriter bw = new BinaryWriter(write))
             {
                 for (int i = 0; i < arr.Length; i++)
-                    bw.Write($"{arr[i]}");
+                    bw.Write(arr[i]);
             }
 
             Console.WriteLine("Array is saved to file2.bin on Desktop");
@@ -62,7 +62,7 @@ namespace _2024_07_09___HW__Work_with_File_
             {
                 Console.Write($"{item} ");
             }
-
+            */
 
             #endregion
         }
