@@ -5,6 +5,29 @@ namespace _2024_07_09___HW__Work_with_File_
 {
     internal class Program
     {
+        static int GetCountVowels(char[] array)
+        {
+            int count = 0;
+            char[] vowels = { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+            foreach (char item in array)
+            {
+                if (Array.Exists(vowels, vowel => vowel == item))
+                    count++;
+            }
+            return count;
+        }
+        static int GetCountConsonants(char[] array)
+        {
+            int vowelsCount = GetCountVowels(array);
+            int letterCount = 0;
+            char[] vowels = { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+            foreach (char item in array)
+            {
+                if (char.IsLetter(item))
+                    letterCount++;
+            }
+            return letterCount - vowelsCount;
+        }
         static void Main(string[] args)
         {
             #region 1
@@ -104,7 +127,7 @@ namespace _2024_07_09___HW__Work_with_File_
 
             #region 5
 
-
+            /*
             Console.OutputEncoding = Encoding.UTF8;
             string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\file3.txt";
             if (File.Exists(filePath))
@@ -134,7 +157,10 @@ namespace _2024_07_09___HW__Work_with_File_
             int choice = int.Parse(Console.ReadLine());
             Console.Write("\n\nВведіть слово : ");
             string wordToFind = Console.ReadLine();
-            if (Array.Exists(words, v => v == wordToFind))
+            char[] charArray = wordToFind.ToCharArray();
+            Array.Reverse(charArray);
+            string ReverseWord = new string(charArray);
+            if (Array.Exists(words, v => v == wordToFind) || (choice == 3 && Array.Exists(words, v => v != ReverseWord)))
             {
                 switch (choice)
                 {
@@ -142,13 +168,62 @@ namespace _2024_07_09___HW__Work_with_File_
                         Console.Write($"\n\nСлово \"{wordToFind}\" знайдено за індексом : {Array.IndexOf(words, wordToFind)}"); break;
                     case 2:
                         Console.Write($"\n\nКількість входження слова \"{wordToFind}\" у файл : {words.Count(word => word == wordToFind)}"); break;
+                    case 3:
+                        Console.Write($"\n\nКількість входження слова \"{ReverseWord}\" у файл : {words.Count(word => word == ReverseWord)}"); break;
                     default:
                         Console.Write("\n\nInvalid choice"); break;
                 }
             }
             else
                 Console.Write("\n\nCлово не знайдено");
+            */
 
+            #endregion
+
+            #region 6
+
+            /*
+            Console.OutputEncoding = Encoding.UTF8;
+            string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\file4.txt";
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+            FileStream fstream = File.Create(filePath);
+            using (StreamWriter sw = new StreamWriter(fstream))
+            {
+                sw.Write("Lorem ipsum dolor sit amet, consectetur adipiscing elit." +
+                    " Ut scelerisque ex ac nisl elementum tincidunt?" +
+                    " Nullam porta odio eget tempor maximus." +
+                    " Nunc aliquam nulla nulla, vitae hendrerit urna ullamcorper eu?" +
+                    " Vestibulum tempor aliquet tellus!");
+            }
+            string file;
+            using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            using (StreamReader sr = new StreamReader(fs))
+            {
+                file = sr.ReadToEnd();
+            }
+            Console.WriteLine(file);
+            char[] charArray = file.ToCharArray();
+            string[] sentences = file.Split(new char[] { '.', '?', '!' }, StringSplitOptions.RemoveEmptyEntries);
+            Console.WriteLine($"\nКількість речень : {sentences.Length}");
+            int UpperLettersCount = 0;
+            foreach (char item in charArray)
+                if (char.IsLetter(item) && char.IsUpper(item))
+                    UpperLettersCount++;
+            Console.WriteLine($"Кількість великих літер : {UpperLettersCount}");
+            int LowerLettersCount = 0;
+            foreach (char item in charArray)
+                if (char.IsLetter(item) && char.IsLower(item))
+                    LowerLettersCount++;
+            Console.WriteLine($"Кількість маленьких літер : {LowerLettersCount}");
+            Console.WriteLine($"Кількість голосних літер : {GetCountVowels(charArray)}");
+            Console.WriteLine($"Кількість приголосних літер : {GetCountConsonants(charArray)}");
+            int digitCount = 0;
+            foreach (char item in charArray)
+                if (char.IsDigit(item))
+                    digitCount++;
+            Console.WriteLine($"Кількість цифр : {digitCount}");
+            */
 
             #endregion
         }
