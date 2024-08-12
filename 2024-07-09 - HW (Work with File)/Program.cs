@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Text;
 
 namespace _2024_07_09___HW__Work_with_File_
 {
@@ -71,10 +72,82 @@ namespace _2024_07_09___HW__Work_with_File_
 
             #region 4
 
+            /*
+            string filePathEven = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\even.bin";
+            string filePathOdd = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\odd.bin";
+            if (File.Exists(filePathEven))
+                File.Delete(filePathEven);
+            if (File.Exists(filePathOdd))
+                File.Delete(filePathOdd);
+            FileStream file1 = File.Create(filePathEven);
+            FileStream file2 = File.Create(filePathOdd);
+            BinaryWriter even = new BinaryWriter(file1);
+            BinaryWriter odd = new BinaryWriter(file2);
+            Random r = new Random();
+            int num;
+            for (int i = 0; i < 10000; i++)
+            {
+                num = r.Next(300);
+                if (num % 2 == 0)
+                    even.Write(num);
+                else
+                    odd.Write(num);
+            }
+            even.Close();
+            odd.Close();
 
-            string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\file3.bin";
+            Console.WriteLine("Count of even numbers : " + (int)(new FileInfo(filePathEven).Length / sizeof(int)));
+            Console.WriteLine("Count of odd numbers : " + (int)(new FileInfo(filePathOdd).Length / sizeof(int)));
+            */
+
+            #endregion
+
+            #region 5
+
+
+            Console.OutputEncoding = Encoding.UTF8;
+            string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\file3.txt";
             if (File.Exists(filePath))
                 File.Delete(filePath);
+            FileStream fstream = File.Create(filePath);
+            using (StreamWriter sw = new StreamWriter(fstream))
+            {
+                sw.Write("Lorem ipsum dolor sit amet, consectetur adipiscing elit." +
+                    " Ut scelerisque ex ac nisl elementum tincidunt?" +
+                    " Nullam porta odio eget tempor maximus." +
+                    " Nunc aliquam nulla nulla, vitae hendrerit urna ullamcorper eu?" +
+                    " Vestibulum tempor aliquet tellus!");
+            }
+            string file;
+            using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            using (StreamReader sr = new StreamReader(fs))
+            {
+                file = sr.ReadToEnd();
+            }
+            Console.WriteLine(file);
+            string[] words = file.Split(new char[] { ' ', ',', '.', '?', '!' }, StringSplitOptions.RemoveEmptyEntries);
+
+            Console.Write("\n1 - Пошук заданого слова" +
+                "\n2 - Пошук кількості входження слова у файл" +
+                "\n3 - Пошук заданого слова у зворотному порядку" +
+                "\nВиберіть пошук : ");
+            int choice = int.Parse(Console.ReadLine());
+            Console.Write("\n\nВведіть слово : ");
+            string wordToFind = Console.ReadLine();
+            if (Array.Exists(words, v => v == wordToFind))
+            {
+                switch (choice)
+                {
+                    case 1:
+                        Console.Write($"\n\nСлово \"{wordToFind}\" знайдено за індексом : {Array.IndexOf(words, wordToFind)}"); break;
+                    case 2:
+                        Console.Write($"\n\nКількість входження слова \"{wordToFind}\" у файл : {words.Count(word => word == wordToFind)}"); break;
+                    default:
+                        Console.Write("\n\nInvalid choice"); break;
+                }
+            }
+            else
+                Console.Write("\n\nCлово не знайдено");
 
 
             #endregion
