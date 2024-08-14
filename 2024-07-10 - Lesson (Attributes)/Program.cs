@@ -62,12 +62,6 @@
                     Console.WriteLine(attr);
                 }
             }
-
-
-
-
-
-
         }
     }
 }
