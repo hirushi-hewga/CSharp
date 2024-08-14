@@ -25,7 +25,6 @@ namespace _2024_07_10___Lesson__DataAnnotations_
         public string ConfirmPassword { get; set; }
     }
 
-
     internal class Program
     {
         static void Main(string[] args)
@@ -73,7 +72,6 @@ namespace _2024_07_10___Lesson__DataAnnotations_
                         Console.WriteLine(error.MemberNames.FirstOrDefault() + ": " + error.ErrorMessage);
                     }
                 }
-
 
             } while (!isValid);
 
