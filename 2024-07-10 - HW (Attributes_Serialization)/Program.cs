@@ -5,6 +5,7 @@ namespace _2024_07_10___HW__Attributes_Serialization_
     class User
     {
         [Required(ErrorMessage = "Id not setted")]
+        [Range(1000, 9999, ErrorMessage = "Id out of range")]
         public int Id { get; set; }
         [Required(ErrorMessage = "Name not setted")]
         [StringLength(50, MinimumLength = 4, ErrorMessage = "Illegal length")]
@@ -17,6 +18,7 @@ namespace _2024_07_10___HW__Attributes_Serialization_
         [EmailAddress]
         public string Email { get; set; }
         [Required]
+        [RegularExpression(@"^[A-Z]+[a-z]*$")]
         public string Login { get; set; }
         [Required]
         public string Password { get; set; }
@@ -29,6 +31,7 @@ namespace _2024_07_10___HW__Attributes_Serialization_
     {
         static void Main(string[] args)
         {
+            Dictionary<int, User> users = new Dictionary<int, User>();
             User user = new User();
             bool isValid = true;
             do
