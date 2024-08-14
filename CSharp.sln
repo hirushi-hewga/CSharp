@@ -87,9 +87,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-09 - HW (Work with 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-10 - Lesson (Attributes)", "2024-07-10 - Lesson (Attributes)\2024-07-10 - Lesson (Attributes).csproj", "{F60F76CF-FDCB-4F23-B0AF-CCD5FCD400DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-10 - Lesson (JsonXML)", "2024-07-10 - Lesson (JsonXML)\2024-07-10 - Lesson (JsonXML).csproj", "{2425EB99-8B89-4EE9-9A76-884565694189}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-10 - Lesson (JsonXML)", "2024-07-10 - Lesson (JsonXML)\2024-07-10 - Lesson (JsonXML).csproj", "{2425EB99-8B89-4EE9-9A76-884565694189}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-10 - Lesson (DataAnnotations)", "2024-07-10 - Lesson (DataAnnotations)\2024-07-10 - Lesson (DataAnnotations).csproj", "{E95309A3-1CFA-4688-8F98-23764D60620E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-10 - Lesson (DataAnnotations)", "2024-07-10 - Lesson (DataAnnotations)\2024-07-10 - Lesson (DataAnnotations).csproj", "{E95309A3-1CFA-4688-8F98-23764D60620E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-10 - HW (Attributes_Serialization)", "2024-07-10 - HW (Attributes_Serialization)\2024-07-10 - HW (Attributes_Serialization).csproj", "{D8B447A1-6457-4C47-AFFE-34EE38BE255E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -273,6 +275,10 @@ Global
 		{E95309A3-1CFA-4688-8F98-23764D60620E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E95309A3-1CFA-4688-8F98-23764D60620E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E95309A3-1CFA-4688-8F98-23764D60620E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8B447A1-6457-4C47-AFFE-34EE38BE255E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8B447A1-6457-4C47-AFFE-34EE38BE255E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8B447A1-6457-4C47-AFFE-34EE38BE255E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8B447A1-6457-4C47-AFFE-34EE38BE255E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
