@@ -91,7 +91,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-10 - Lesson (JsonXM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-10 - Lesson (DataAnnotations)", "2024-07-10 - Lesson (DataAnnotations)\2024-07-10 - Lesson (DataAnnotations).csproj", "{E95309A3-1CFA-4688-8F98-23764D60620E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-10 - HW (Attributes_Serialization)", "2024-07-10 - HW (Attributes_Serialization)\2024-07-10 - HW (Attributes_Serialization).csproj", "{D8B447A1-6457-4C47-AFFE-34EE38BE255E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2024-07-10 - HW (Attributes_Serialization)", "2024-07-10 - HW (Attributes_Serialization)\2024-07-10 - HW (Attributes_Serialization).csproj", "{D8B447A1-6457-4C47-AFFE-34EE38BE255E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2024-07-12 - Lesson (Regular_Expression)", "2024-07-12 - Lesson (Regular_Expression)\2024-07-12 - Lesson (Regular_Expression).csproj", "{95860DCA-3929-47BA-AB2A-AC8165D5A7F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -279,6 +281,10 @@ Global
 		{D8B447A1-6457-4C47-AFFE-34EE38BE255E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8B447A1-6457-4C47-AFFE-34EE38BE255E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8B447A1-6457-4C47-AFFE-34EE38BE255E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95860DCA-3929-47BA-AB2A-AC8165D5A7F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95860DCA-3929-47BA-AB2A-AC8165D5A7F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95860DCA-3929-47BA-AB2A-AC8165D5A7F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95860DCA-3929-47BA-AB2A-AC8165D5A7F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
