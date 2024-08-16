@@ -33,22 +33,52 @@ namespace _2024_07_15___Exam__FileSystem_
         //{
 
         //}
-        static void Main(string[] args)
+        static void ShowDir(string filePath)
         {
-            string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}";
             DirectoryInfo desktop = new DirectoryInfo(filePath);
             IEnumerable<DirectoryInfo> dirsInfo = desktop.EnumerateDirectories();
-            Console.WriteLine("------------------------ Dirs ------------------------");
+            IEnumerable<FileInfo> filesInfo = desktop.EnumerateFiles();
+            int i = 0;
             foreach (DirectoryInfo info in dirsInfo)
             {
-                Console.WriteLine("{0} - {1}", info.Name.Length > 25 ? info.Name.Substring(0, 23) + ".." : info.Name, info.Name.Length);
+                Console.WriteLine("{1} - {0}", info.Name.Length > 50 ? info.Name.Substring(0, 48) + ".." : info.Name, ++i);
             }
-            IEnumerable<FileInfo> filesInfo = desktop.EnumerateFiles();
-            Console.WriteLine("------------------------ Files ------------------------");
             foreach (FileInfo info in filesInfo)
             {
-                Console.WriteLine("{0} - {1}", info.Name.Length > 25 ? info.Name.Substring(0, 23) + ".." : info.Name, info.Name.Length);
+                Console.WriteLine("{1} - {0}", info.Name.Length > 50 ? info.Name.Substring(0, 48) + ".." : info.Name, ++i);
             }
+        }
+        static void Main(string[] args)
+        {
+            //string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}";
+            //ShowDir(filePath);
+            string Path = $@"C:\";
+            string fileToRead;
+            DirectoryInfo desktop;
+            IEnumerable<DirectoryInfo> dirsInfo;
+            IEnumerable<FileInfo> filesInfo;
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("-------- {0} --------", Path);
+                ShowDir(Path);
+                Console.Write("\nChoice dir or file : ");
+                int choice = int.Parse(Console.ReadLine());
+                desktop = new DirectoryInfo(Path);
+                dirsInfo = desktop.EnumerateDirectories();
+                filesInfo = desktop.EnumerateFiles();
+                if (choice > 0 && choice <= dirsInfo.Count())
+                    Path = dirsInfo.ToArray()[choice - 1].FullName;
+                else if (choice > dirsInfo.Count() && choice <= (dirsInfo.Count() + filesInfo.Count()))
+                {
+                    fileToRead = filesInfo.ToArray()[choice - dirsInfo.Count() - 1].FullName;
+                    Console.WriteLine(File.ReadAllText(fileToRead));
+                    Console.ReadKey();
+                }
+                else
+                    Console.WriteLine("Invalid choice");
+            }
+            
 
 
 
