@@ -1,6 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
+using System.Text.Json;
+using System.Xml.Serialization;
 
 namespace _2024_07_10___HW__Attributes_Serialization_
 {
@@ -8,9 +11,7 @@ namespace _2024_07_10___HW__Attributes_Serialization_
     {
         [Required(ErrorMessage = "Id not setted")]
         [Range(1000, 9999, ErrorMessage = "Id out of range")]
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; } = 1000;
+        public int Id { get; set; }
         [Required(ErrorMessage = "Name not setted")]
         [StringLength(50, MinimumLength = 4, ErrorMessage = "Illegal length")]
         public string Name { get; set; }
@@ -21,14 +22,14 @@ namespace _2024_07_10___HW__Attributes_Serialization_
         public string Phone { get; set; }
         [RegularExpression(@"^\w{4,}@\w+\.\w+$", ErrorMessage = "Incorrect Email")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Login not setted")]
         [RegularExpression(@"^[A-Z]+[a-z]*$", ErrorMessage = "Incorrect Login")]
         public string Login { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Password not setted")]
         [RegularExpression(@"^[A-Z]+[a-z]*$", ErrorMessage = "Incorrect Password")]
         [StringLength(50, MinimumLength = 8, ErrorMessage = "Illegal length")]
         public string Password { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Confirm password not setted")]
         [Compare(nameof(Password), ErrorMessage = "Not confirm password")]
         [RegularExpression(@"^[A-Z]+[a-z]*$", ErrorMessage = "Incorrect Confirm Password")]
         [StringLength(50, MinimumLength = 8, ErrorMessage = "Illegal length")]
@@ -36,57 +37,81 @@ namespace _2024_07_10___HW__Attributes_Serialization_
         [RegularExpression(@"^\d+$", ErrorMessage = "Incorrect Confirm Password")]
         [StringLength(16, ErrorMessage = "Illegal length")]
         public string CreditCard { get; set; }
+        public void Show()
+        {
+            Console.WriteLine($"====== Id : {Id} , Name : {Name} ======" +
+                $"\nAge : {Age}\nPhone : {Phone}\nEmail : {Email}" +
+                $"\nLogin : {Login}\nPassword : {Password}" +
+                $"\nConfirm password : {ConfirmPassword}" +
+                $"\nCredit card number : {CreditCard}\n");
+        }
     }
 
     internal class Program
     {
-        enum MENU { ADD = 1, REMOVE, SAVE, LOAD, EXIT }
+        static void SaveToJson(Dictionary<int, User> users, string filePath)
+        {
+            string jsonString = JsonSerializer.Serialize(users);
+            File.WriteAllText(filePath, jsonString);
+        }
+        static Dictionary<int, User> LoadFromJson(string filePath)
+        {
+            string jsonString = File.ReadAllText(filePath);
+            Dictionary<int, User> users = JsonSerializer.Deserialize<Dictionary<int, User>>(jsonString);
+            return users;
+        }
         static void Main(string[] args)
         {
+            string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\users.json";
             Dictionary<int, User> users = new Dictionary<int, User>();
-            User user = new User();
             bool isValid;
             bool isExit = false;
             int choice = 0;
             while (!isExit)
             {
+                Console.Clear();
                 Console.Write("1 - Add user\n2 - Delete user" +
                     "\n3 - Save users to file\n4 - Load users from file" +
-                    "\n5 - Exit\nEnter your choice : ");
+                    "\n5 - Show users\n6 - Exit\nEnter your choice : ");
                 choice = int.Parse(Console.ReadLine());
                 Console.Clear();
                 switch (choice)
                 {
                     case 1:
-                        isValid = true;
+                        isValid = false;
+                        User user = new User();
                         do
                         {
-                            Console.WriteLine("Enter name:");
+                            Console.Write("Enter id : ");
+                            int id = int.Parse(Console.ReadLine()!);
+
+                            Console.Write("Enter name : ");
                             string name = Console.ReadLine()!;
 
-                            Console.WriteLine("Enter age");
+                            Console.Write("Enter age : ");
                             int age = int.Parse(Console.ReadLine()!);
 
-                            Console.WriteLine("Enter Login");
+                            Console.Write("Enter Login : ");
                             string login = Console.ReadLine()!;
 
-                            Console.WriteLine("Enter password");
+                            Console.Write("Enter password : ");
                             string password = Console.ReadLine()!;
 
-                            Console.WriteLine("Confirm password");
+                            Console.Write("Enter confirm password : ");
                             string confirmPassword = Console.ReadLine()!;
 
-                            Console.WriteLine("Enter email");
+                            Console.Write("Enter email : ");
                             string email = Console.ReadLine()!;
 
-                            Console.WriteLine("Enter phone");
+                            Console.Write("Enter phone : ");
                             string phone = Console.ReadLine()!;
 
-                            Console.WriteLine("Enter card number");
+                            Console.Write("Enter card number : ");
                             string creditCard = Console.ReadLine()!;
 
                             Console.Clear();
 
+                            user.Id = id;
                             user.Name = name;
                             user.Age = age;
                             user.Password = password;
@@ -98,28 +123,90 @@ namespace _2024_07_10___HW__Attributes_Serialization_
 
                             var result = new List<ValidationResult>();
                             var contex = new ValidationContext(user);
-                            if (!(isValid = Validator.TryValidateObject(user, contex, result, true)))
+                            if (!(isValid = Validator.TryValidateObject(user, contex, result, true)) || users.ContainsKey(id))
                             {
                                 foreach (ValidationResult error in result)
                                 {
                                     Console.WriteLine(error.MemberNames.FirstOrDefault() + ": " + error.ErrorMessage);
                                 }
+                                if (users.ContainsKey(id))
+                                    Console.WriteLine("Id: Id already exists");
+                                Console.WriteLine("\n=====================\n");
                             }
-                            Console.WriteLine();
-
+                            else
+                            {
+                                isValid = true;
+                                users.Add(id, user);
+                            }
                         } while (!isValid);
+                        break;
                     case 2:
-                        Console.WriteLine();
+                        if (users.Count == 0)
+                        {
+                            Console.Write("Dictionary is empty\n\nPress any key to continue...");
+                            Console.ReadKey();
+                            break;
+                        }
+                        bool isFoundId = true;
+                        int userId = 0;
+                        do
+                        {
+                            foreach (var item in users)
+                            {
+                                Console.WriteLine("====== Id : {0} ======\nName : {1}\nAge : {2}\n", item.Key, item.Value.Name, item.Value.Age);
+                            }
+                            if (!isFoundId)
+                                Console.WriteLine($"============================\n\nId \"{userId}\" does not exist\n");
+                            Console.Write("Enter user id to delete : ");
+                            userId = int.Parse(Console.ReadLine());
+                            if (!users.ContainsKey(userId))
+                                isFoundId = false;
+                            else isFoundId = true;
+                        }
+                        while (!isFoundId);
+                        users.Remove(userId);
+                        break;
                     case 3:
-                        Console.WriteLine();
+                        if (users.Count == 0)
+                        {
+                            Console.Write("Dictionary is empty\n\nPress any key to continue...");
+                            Console.ReadKey();
+                            break;
+                        }
+                        if (File.Exists(filePath))
+                            File.Delete(filePath);
+                        SaveToJson(users, filePath);
+                        break;
                     case 4:
-                        Console.WriteLine();
+                        if (!File.Exists(filePath))
+                        {
+                            Console.Write("File not found\n\nPress any key to continue...");
+                            Console.ReadKey();
+                            break;
+                        }
+                        users = LoadFromJson(filePath);
+                        break;
                     case 5:
-                        isExit = true;
+                        if (users.Count == 0)
+                        {
+                            Console.Write("Dictionary is empty\n\nPress any key to continue...");
+                            Console.ReadKey();
+                            break;
+                        }
+                        foreach (User item in users.Values)
+                        {
+                            item.Show();
+                        }
+                        Console.Write("\nPress any key to continue...");
+                        Console.ReadKey();
+                        break;
+                    case 6:
+                        isExit = true; break;
                     default:
-                        Console.WriteLine("Invalid choice\n");
+                        break;
                 }
             }
+            Console.WriteLine("Goodbye.");
         }
     }
 }

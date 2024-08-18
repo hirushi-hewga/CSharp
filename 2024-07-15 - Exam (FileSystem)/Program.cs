@@ -50,8 +50,7 @@ namespace _2024_07_15___Exam__FileSystem_
         }
         static void Main(string[] args)
         {
-            //string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}";
-            //ShowDir(filePath);
+            Console.OutputEncoding = Encoding.UTF8;
             string Path = $@"C:\";
             string fileToRead;
             DirectoryInfo desktop;
@@ -72,11 +71,10 @@ namespace _2024_07_15___Exam__FileSystem_
                 else if (choice > dirsInfo.Count() && choice <= (dirsInfo.Count() + filesInfo.Count()))
                 {
                     fileToRead = filesInfo.ToArray()[choice - dirsInfo.Count() - 1].FullName;
+                    Console.Clear();
                     Console.WriteLine(File.ReadAllText(fileToRead));
                     Console.ReadKey();
                 }
-                else
-                    Console.WriteLine("Invalid choice");
             }
             
 
