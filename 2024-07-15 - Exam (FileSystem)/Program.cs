@@ -1,30 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Text;
 
 namespace _2024_07_15___Exam__FileSystem_
 {
     internal class Program
     {
-        //static void WriteFile(FileInfo f)
-        //{
-        //    using (FileStream fs = f.Open(FileMode.Create, FileAccess.Write, FileShare.None))
-        //    {
-        //        Console.WriteLine("\nEnter the data to write to the file:");
-        //        string writeText = Console.ReadLine();
-        //        byte[] writeBytes = Encoding.Default.GetBytes(writeText);
-        //        fs.Write(writeBytes, 0, writeBytes.Length);
-        //        Console.WriteLine("\nData recorded!\n");
-        //    }
-        //}
-        //static string ReadFile(FileInfo f)
-        //{
-        //    using (FileStream fs = f.OpenRead())
-        //    {
-        //        byte[] readBytes = new byte[(int)fs.Length];
-        //        fs.Read(readBytes, 0, readBytes.Length);
-        //        return Encoding.Default.GetString(readBytes);
-        //    }
-        //}
         static void ShowDirs(string filePath, int choice)
         {
             DirectoryInfo desktop = new DirectoryInfo(filePath);
@@ -252,6 +233,7 @@ namespace _2024_07_15___Exam__FileSystem_
                             Console.Clear();
                             Console.WriteLine(File.ReadAllText(currentFile));
                             Console.ReadKey();
+                            //Process.Start(new ProcessStartInfo(currentFile) { UseShellExecute = true });
                         }
                     }
                 }
