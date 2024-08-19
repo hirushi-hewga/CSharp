@@ -25,6 +25,25 @@ namespace _2024_07_15___Exam__FileSystem_
         //        return Encoding.Default.GetString(readBytes);
         //    }
         //}
+        static void ShowDirs(string filePath, int choice)
+        {
+            DirectoryInfo desktop = new DirectoryInfo(filePath);
+            IEnumerable<DirectoryInfo> dirsInfo = desktop.EnumerateDirectories();
+            if (dirsInfo.Count() == 0)
+                Console.WriteLine("Directory is empty");
+            int i = 0;
+            foreach (DirectoryInfo info in dirsInfo)
+            {
+                if (choice == ++i)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
+                Console.WriteLine(" {0} ", info.Name.Length > 80 ? info.Name.Substring(0, 78) + ".." : info.Name, i);
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.Gray;
+            }
+        }
         static void ShowDir(string filePath, int choice)
         {
             DirectoryInfo desktop = new DirectoryInfo(filePath);
@@ -56,6 +75,34 @@ namespace _2024_07_15___Exam__FileSystem_
                 Console.ForegroundColor = ConsoleColor.Gray;
             }
         }
+        static void FileChoice(string filePath, int choice)
+        {
+            int i = 0;
+            if (choice == ++i)
+            {
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Black;
+            }
+            Console.WriteLine(" Delete ");
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Gray;
+            if (choice == ++i)
+            {
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Black;
+            }
+            Console.WriteLine(" Move ");
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Gray;
+            if (choice == ++i)
+            {
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Black;
+            }
+            Console.WriteLine(" Open ");
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
         static void MakeDir(string path)
         {
             Console.Clear();
@@ -83,13 +130,18 @@ namespace _2024_07_15___Exam__FileSystem_
             string secondPath;
             string path = $@"C:\";
             int choice = 1;
+            int fileChoice;
             string currentFile;
             DirectoryInfo desktop;
+            bool isMove;
             bool isCreate;
             IEnumerable<DirectoryInfo> dirsInfo;
             IEnumerable<FileInfo> filesInfo;
             while (true)
             {
+                firstPath = null;
+                secondPath = null;
+                isMove = false;
                 isCreate = false;
                 string currentPath = path;
                 desktop = new DirectoryInfo(path);
@@ -101,7 +153,7 @@ namespace _2024_07_15___Exam__FileSystem_
                     Console.Clear();
                     Console.WriteLine("-------- {0} --------", path);
                     ShowDir(path, choice);
-                    Console.WriteLine("\n| Back - F1 | Open - F2 | Make dir - F3 | Remove dir - F4 | Prev - UpArrow | Next - DownArrow |");
+                    Console.WriteLine("\n| Back - F1 | Choice - F2 | Make dir - F3 | Remove dir - F4 | Prev - UpArrow | Next - DownArrow |");
                     ConsoleKeyInfo key = Console.ReadKey();
                     if (key.Key == ConsoleKey.DownArrow && choice < dirsInfo.Count() + filesInfo.Count())
                         choice++;
@@ -129,13 +181,74 @@ namespace _2024_07_15___Exam__FileSystem_
                         path = dirsInfo.ToArray()[choice - 1].FullName;
                     else if (choice > dirsInfo.Count() && choice <= (dirsInfo.Count() + filesInfo.Count()))
                     {
-                        Console.Clear();
-                        Console.WriteLine("");
-                        int fileChoice = 0;
-
+                        currentFile = filesInfo.ToArray()[choice - dirsInfo.Count() - 1].FullName;
+                        fileChoice = 1;
+                        while (true)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("-------- {0} --------", filesInfo.ToArray()[choice - dirsInfo.Count() - 1].FullName);
+                            FileChoice(currentFile, fileChoice);
+                            Console.WriteLine("\n| Choice - F2 | Prev - UpArrow | Next - DownArrow |");
+                            ConsoleKeyInfo key = Console.ReadKey();
+                            if (key.Key == ConsoleKey.DownArrow && fileChoice < 3)
+                                fileChoice++;
+                            if (key.Key == ConsoleKey.UpArrow && fileChoice > 1)
+                                fileChoice--;
+                            if (key.Key == ConsoleKey.F2)
+                                break;
+                        }
                         if (fileChoice == 1)
                         {
-                            currentFile = filesInfo.ToArray()[choice - dirsInfo.Count() - 1].FullName;
+                            File.Delete(currentFile);
+                        }
+                        if (fileChoice == 2)
+                        {
+                            firstPath = currentFile;
+                            string temp_path = $@"C:\";
+                            int temp_choice = 1;
+                            DirectoryInfo temp_desktop;
+                            IEnumerable<DirectoryInfo> temp_dirsInfo;
+                            while (true)
+                            {
+                                string temp_currentPath = temp_path;
+                                temp_desktop = new DirectoryInfo(temp_path);
+                                temp_dirsInfo = temp_desktop.EnumerateDirectories();
+                                temp_choice = 1;
+                                while (true)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("-------- {0} --------", temp_path);
+                                    ShowDirs(temp_path, temp_choice);
+                                    Console.WriteLine("\n| Back - F1 | Choice - F2 | Move - F5 | Prev - UpArrow | Next - DownArrow |");
+                                    ConsoleKeyInfo key = Console.ReadKey();
+                                    if (key.Key == ConsoleKey.DownArrow && temp_choice < temp_dirsInfo.Count())
+                                        temp_choice++;
+                                    if (key.Key == ConsoleKey.UpArrow && temp_choice > 1)
+                                        temp_choice--;
+                                    if (key.Key == ConsoleKey.F1 && temp_path != $@"C:\")
+                                    {
+                                        temp_path = Path.GetDirectoryName(temp_path);
+                                        break;
+                                    }
+                                    if (key.Key == ConsoleKey.F2)
+                                        break;
+                                    if (key.Key == ConsoleKey.F5)
+                                    {
+                                        secondPath = temp_path + $@"\" + filesInfo.ToArray()[choice - dirsInfo.Count() - 1].Name;
+                                        File.Move(firstPath, secondPath);
+                                        path = $@"C:\";
+                                        isMove = true;
+                                        break;
+                                    }
+                                }
+                                if (temp_path == temp_currentPath && temp_choice > 0 && temp_choice <= temp_dirsInfo.Count())
+                                    temp_path = temp_dirsInfo.ToArray()[temp_choice - 1].FullName;
+                                if (isMove)
+                                    break;
+                            }
+                        }
+                        if (fileChoice == 3)
+                        {
                             Console.Clear();
                             Console.WriteLine(File.ReadAllText(currentFile));
                             Console.ReadKey();
@@ -143,37 +256,6 @@ namespace _2024_07_15___Exam__FileSystem_
                     }
                 }
             }
-            
-
-
-
-
-
-            //DirectoryInfo dir = new DirectoryInfo(@"C:\Test");
-            //if (!dir.Exists) // если каталог не существует
-            //{
-            //    dir.Create(); // создаем каталог
-            //}
-
-            //Console.WriteLine($"Last access time to the directory:{dir.LastAccessTime}");
-
-            //// создаем подкаталог
-            //DirectoryInfo dir1 = dir.CreateSubdirectory("Subdir1");
-
-            //Console.WriteLine($"Full path to the directory:\n{dir1.FullName}");
-
-            //FileInfo fInfo = new FileInfo(dir1 + @"\Test.bin");
-            //WriteFile(fInfo);
-
-            //Console.WriteLine(ReadFile(fInfo));
-
-            //Console.WriteLine($"\n\tOnly files with the extension '.bin':");
-            //FileInfo[] files = dir1.GetFiles("*.bin");
-            //foreach (FileInfo f in files)
-            //{
-            //    Console.WriteLine(f.Name);
-            //}
-            //Console.WriteLine();
         }
     }
 }
