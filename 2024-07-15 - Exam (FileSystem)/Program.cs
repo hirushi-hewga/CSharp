@@ -46,7 +46,7 @@ namespace _2024_07_15___Exam__FileSystem_
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
                 }
-                Console.WriteLine("{1} - {0}", info.Name.Length > 80 ? info.Name.Substring(0, 78) + ".." : info.Name, i);
+                Console.WriteLine(" {0} ", info.Name.Length > 80 ? info.Name.Substring(0, 78) + ".." : info.Name, i);
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Gray;
             }
@@ -57,7 +57,7 @@ namespace _2024_07_15___Exam__FileSystem_
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
                 }
-                Console.WriteLine("{1} - {0}", info.Name.Length > 80 ? info.Name.Substring(0, 78) + ".." : info.Name, i);
+                Console.WriteLine(" {0} ", info.Name.Length > 80 ? info.Name.Substring(0, 78) + ".." : info.Name, i);
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Gray;
             }
@@ -65,7 +65,7 @@ namespace _2024_07_15___Exam__FileSystem_
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
-            string Path = $@"C:\";
+            string path = $@"C:\";
             int choice = 1;
             string currentFile;
             DirectoryInfo desktop;
@@ -73,35 +73,41 @@ namespace _2024_07_15___Exam__FileSystem_
             IEnumerable<FileInfo> filesInfo;
             while (true)
             {
-                //Console.Clear();
-                //Console.WriteLine("-------- {0} --------", Path);
-                //ShowDir(Path);
-                //Console.Write("\nChoice dir or file : ");
-                //choice = int.Parse(Console.ReadLine());
-                desktop = new DirectoryInfo(Path);
+                string currentPath = path;
+                desktop = new DirectoryInfo(path);
                 dirsInfo = desktop.EnumerateDirectories();
                 filesInfo = desktop.EnumerateFiles();
+                choice = 1;
                 while (true)
                 {
                     Console.Clear();
-                    Console.WriteLine("-------- {0} --------", Path);
-                    ShowDir(Path, choice);
+                    Console.WriteLine("-------- {0} --------", path);
+                    ShowDir(path, choice);
+                    Console.WriteLine("\n| Back - F1 | Prev - UpArrow | Next - DownArrow |");
                     ConsoleKeyInfo key = Console.ReadKey();
                     if (key.Key == ConsoleKey.DownArrow && choice < dirsInfo.Count() + filesInfo.Count())
                         choice++;
                     if (key.Key == ConsoleKey.UpArrow && choice > 1)
                         choice--;
+                    if (key.Key == ConsoleKey.F1)
+                    {
+                        path = Path.GetDirectoryName(path);
+                        break;
+                    }
                     if (key.Key == ConsoleKey.Enter)
                         break;
                 }
-                if (choice > 0 && choice <= dirsInfo.Count())
-                    Path = dirsInfo.ToArray()[choice - 1].FullName;
-                else if (choice > dirsInfo.Count() && choice <= (dirsInfo.Count() + filesInfo.Count()))
+                if (path == currentPath)
                 {
-                    currentFile = filesInfo.ToArray()[choice - dirsInfo.Count() - 1].FullName;
-                    Console.Clear();
-                    Console.WriteLine(File.ReadAllText(currentFile));
-                    Console.ReadKey();
+                    if (choice > 0 && choice <= dirsInfo.Count())
+                        path = dirsInfo.ToArray()[choice - 1].FullName;
+                    else if (choice > dirsInfo.Count() && choice <= (dirsInfo.Count() + filesInfo.Count()))
+                    {
+                        currentFile = filesInfo.ToArray()[choice - dirsInfo.Count() - 1].FullName;
+                        Console.Clear();
+                        Console.WriteLine(File.ReadAllText(currentFile));
+                        Console.ReadKey();
+                    }
                 }
             }
             
