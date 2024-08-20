@@ -1,37 +1,34 @@
-﻿using static System.Console;
+﻿using System.Reflection;
+using static System.Console;
 namespace _2024_07_15___HW__Intro_to_Design_Pattern_
 {
     #region Processor
 
     abstract class Processor
     {
-        public string Name { get; set; }
-        public Processor(string name)
+        public string Model { get; set; }
+        public Processor(string model)
         {
-            Name = name;
+            Model = model;
         }
         public abstract void Print();
-        public override string ToString()
-        {
-            return $"Name : {Name}";
-        }
     }
 
     class AmdProcessor : Processor
     {
-        public AmdProcessor(string name) : base(name) { }
+        public AmdProcessor(string model) : base(model) { }
         public override void Print()
         {
-            WriteLine(ToString());
+            WriteLine($"Processor : {Model}");
         }
     }
 
     class IntelProcessor : Processor
     {
-        public IntelProcessor(string name) : base(name) { }
+        public IntelProcessor(string model) : base(model) { }
         public override void Print()
         {
-            WriteLine(ToString());
+            WriteLine($"Processor : {Model}");
         }
     }
 
@@ -41,33 +38,29 @@ namespace _2024_07_15___HW__Intro_to_Design_Pattern_
 
     abstract class MainBoard
     {
-        public string Name { get; set; }
-        public MainBoard(string name)
+        public string Model { get; set; }
+        public MainBoard(string model)
         {
-            Name = name;
+            Model = model;
         }
         public abstract void Print();
-        public override string ToString()
-        {
-            return $"Name : {Name}";
-        }
     }
 
     class AsusMainBord : MainBoard
     {
-        public AsusMainBord(string name) : base(name) { }
+        public AsusMainBord(string model) : base(model) { }
         public override void Print()
         {
-            WriteLine(ToString());
+            WriteLine($"MainBoard : {Model}");
         }
     }
 
     class MSIMainBord : MainBoard
     {
-        public MSIMainBord(string name) : base(name) { }
+        public MSIMainBord(string model) : base(model) { }
         public override void Print()
         {
-            WriteLine(ToString());
+            WriteLine($"MainBoard : {Model}");
         }
     }
 
@@ -77,33 +70,29 @@ namespace _2024_07_15___HW__Intro_to_Design_Pattern_
 
     abstract class Box
     {
-        public string Name { get; set; }
-        public Box(string name)
+        public string Model { get; set; }
+        public Box(string model)
         {
-            Name = name;
+            Model = model;
         }
         public abstract void Print();
-        public override string ToString()
-        {
-            return $"Name : {Name}";
-        }
     }
 
     class BlackBox : Box
     {
-        public BlackBox(string name) : base(name) { }
+        public BlackBox(string model) : base(model) { }
         public override void Print()
         {
-            WriteLine(ToString());
+            WriteLine($"Box : {Model}");
         }
     }
 
     class SilverBox : Box
     {
-        public SilverBox(string name) : base(name) { }
+        public SilverBox(string model) : base(model) { }
         public override void Print()
         {
-            WriteLine(ToString());
+            WriteLine($"Box : {Model}");
         }
     }
 
@@ -113,33 +102,29 @@ namespace _2024_07_15___HW__Intro_to_Design_Pattern_
 
     abstract class Hdd
     {
-        public string Name { get; set; }
-        public Hdd(string name)
+        public string Model { get; set; }
+        public Hdd(string model)
         {
-            Name = name;
+            Model = model;
         }
         public abstract void Print();
-        public override string ToString()
-        {
-            return $"Name : {Name}";
-        }
     }
 
     class LGHDD : Hdd
     {
-        public LGHDD(string name) : base(name) { }
+        public LGHDD(string model) : base(model) { }
         public override void Print()
         {
-            WriteLine(ToString());
+            WriteLine($"HDD : {Model}");
         }
     }
 
     class SamsungHDD : Hdd
     {
-        public SamsungHDD(string name) : base(name) { }
+        public SamsungHDD(string model) : base(model) { }
         public override void Print()
         {
-            WriteLine(ToString());
+            WriteLine($"HDD : {Model}");
         }
     }
 
@@ -149,44 +134,126 @@ namespace _2024_07_15___HW__Intro_to_Design_Pattern_
 
     abstract class Memory
     {
-        public string Name { get; set; }
-        public Memory(string name)
+        public string Model { get; set; }
+        public Memory(string model)
         {
-            Name = name;
+            Model = model;
         }
         public abstract void Print();
-        public override string ToString()
-        {
-            return $"Name : {Name}";
-        }
     }
 
     class DdrMemory : Memory
     {
-        public DdrMemory(string name) : base(name) { }
+        public DdrMemory(string model) : base(model) { }
         public override void Print()
         {
-            WriteLine(ToString());
+            WriteLine($"Memory : {Model}");
         }
     }
 
     class Ddr2Memory : Memory
     {
-        public Ddr2Memory(string name) : base(name) { }
+        public Ddr2Memory(string model) : base(model) { }
         public override void Print()
         {
-            WriteLine(ToString());
+            WriteLine($"Memory : {Model}");
         }
     }
 
     #endregion
 
 
+    interface IPcFactory
+    {
+        Box CreateBox();
+        Processor CreateProcessor();
+        MainBoard CreateMainBoard();
+        Hdd CreateHdd();
+        Memory CreateMemory();
+    }
+
+    class OfficePcFactory : IPcFactory
+    {
+        public Box CreateBox()
+        {
+            return new BlackBox("Black");
+        }
+
+        public Hdd CreateHdd()
+        {
+            return new LGHDD("LG");
+        }
+
+        public MainBoard CreateMainBoard()
+        {
+            return new AsusMainBord("Asus");
+        }
+
+        public Memory CreateMemory()
+        {
+            return new DdrMemory("DDR");
+        }
+
+        public Processor CreateProcessor()
+        {
+            return new AmdProcessor("AMD");
+        }
+    }
+
+    class HomePcFactory : IPcFactory
+    {
+        public Box CreateBox()
+        {
+            return new SilverBox("Silver");
+        }
+
+        public Hdd CreateHdd()
+        {
+            return new SamsungHDD("Samsung");
+        }
+
+        public MainBoard CreateMainBoard()
+        {
+            return new MSIMainBord("MSI");
+        }
+
+        public Memory CreateMemory()
+        {
+            return new Ddr2Memory("DDR2");
+        }
+
+        public Processor CreateProcessor()
+        {
+            return new IntelProcessor("Intel");
+        }
+    }
+
+    class PcConfigurator
+    {
+        public IPcFactory PcFactory { get; set; }
+        public void Configure(Pc pc)
+        {
+
+        }
+    }
+
+    class Pc
+    {
+        public Box Box { get; set; }
+        public Processor Processor { get; set; }
+        public MainBoard MainBoard { get; set; }
+        public Hdd Hdd { get; set; }
+        public Memory Memory { get; set; }
+    }
+
+
     internal class Program
     {
         static void Main(string[] args)
         {
-
+            Pc OfficePc = new Pc();
+            Pc HomePc = new Pc();
+            PcConfigurator configurator = new PcConfigurator() { PcFactory = new OfficePcFactory() };
         }
     }
 }
