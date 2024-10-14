@@ -233,7 +233,14 @@ namespace _2024_07_15___HW__Intro_to_Design_Pattern_
         public IPcFactory PcFactory { get; set; }
         public void Configure(Pc pc)
         {
+            if (PcFactory == null)
+                throw new InvalidOperationException("PcFactory must be assigned before configuring the PC");
 
+            pc.Box = PcFactory.CreateBox();
+            pc.Processor = PcFactory.CreateProcessor();
+            pc.MainBoard = PcFactory.CreateMainBoard();
+            pc.Hdd = PcFactory.CreateHdd();
+            pc.Memory = PcFactory.CreateMemory();
         }
     }
 
@@ -244,6 +251,14 @@ namespace _2024_07_15___HW__Intro_to_Design_Pattern_
         public MainBoard MainBoard { get; set; }
         public Hdd Hdd { get; set; }
         public Memory Memory { get; set; }
+        public override string ToString()
+        {
+            return $"Box : {Box.Model}" +
+                 $"\nProcessor : {Processor.Model}" +
+                 $"\nMain board : {MainBoard.Model}" +
+                 $"\nHdd : {Hdd.Model}" +
+                 $"\nMemory : {Memory.Model}";
+        }
     }
 
 
@@ -251,9 +266,18 @@ namespace _2024_07_15___HW__Intro_to_Design_Pattern_
     {
         static void Main(string[] args)
         {
-            Pc OfficePc = new Pc();
-            Pc HomePc = new Pc();
-            PcConfigurator configurator = new PcConfigurator() { PcFactory = new OfficePcFactory() };
+            PcConfigurator homePcConfigurator = new PcConfigurator() { PcFactory = new HomePcFactory() };
+            PcConfigurator officePcConfigurator = new PcConfigurator() { PcFactory = new OfficePcFactory() };
+            Pc homePc = new Pc();
+            Pc officePc = new Pc();
+            homePcConfigurator.Configure(homePc);
+            officePcConfigurator.Configure(officePc);
+            
+            WriteLine($"------ Home Pc ------" +
+                      $"\n{homePc.ToString()}");
+
+            WriteLine($"\n------ Office Pc ------" +
+                      $"\n{officePc.ToString()}");
         }
     }
 }
